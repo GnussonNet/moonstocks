@@ -5,7 +5,7 @@
   --clr-bg-alt: #242526;
   --clr-sec: #2d88ff;
   --clr-sec-alt: rgba(255, 255, 255, 0.1);
-  --clr-text: #eefbfb;
+  --clr-text: #fcfcfc;
   --clr-text-alt: #18191a;
 
   --clr-hover: rgba(255, 255, 255, 0.1);
@@ -42,7 +42,7 @@ body {
   font-size: 10px;
 
   font-family: 'Poppins';
-  background-color: var(--clr-bg);
+  background-color: var(--clr-text);
   color: var(--clr-text);
 
   -webkit-font-smoothing: antialiased;
@@ -101,7 +101,7 @@ img {
   height: var(--navbar-button-size);
   margin: 0 5rem 0 5rem;
 
-  background-color: var(--clr-hover);
+  background-color: var(--clr-text);
   overflow: hidden;
 
   transition: height 250ms;
@@ -120,6 +120,7 @@ img {
 .navbar-search .search svg {
   width: var(--navbar-icon-size);
   height: var(--navbar-icon-size);
+  color: var(--clr-bg);
 
   margin: 0 1.1rem 0 1.1rem;
 }
@@ -131,7 +132,7 @@ img {
   flex-grow: 1;
 
   background-color: transparent;
-  color: var(--clr-text);
+  color: var(--clr-bg);
   border: none;
   outline: none;
 }
