@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --clr-bg: #18191a;
-  --clr-bg-alt: #242526;
+  --clr-bg: #1D1D1D;
   --clr-sec: #2d88ff;
   --clr-sec-alt: rgba(255, 255, 255, 0.1);
   --clr-text: #fcfcfc;
@@ -74,8 +73,8 @@ img {
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 3rem;
-  background-color: var(--clr-bg-alt);
+  padding: 0 4rem;
+  background-color: var(--clr-bg);
   border-bottom: 1px solid #393a3b;
 }
 
@@ -85,21 +84,22 @@ img {
   min-width: 20rem;
 }
 
-.navbar-search1 {
-  width: 100%;
-  height: var(--navbar-size);
+.navbar-logo-container {
+  width: 20rem;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+.navbar-logo {
+  width: calc(var(--navbar-button-size) - 2%);
+}
+
 .navbar-search {
-  top: 0.7rem;
-  position: absolute;
   width: 100%;
-  max-width: 30%;
+  max-width: 40%;
   height: var(--navbar-button-size);
-  margin: 0 5rem 0 5rem;
+
+  border-radius: 8px;
 
   background-color: var(--clr-text);
   overflow: hidden;
@@ -113,36 +113,31 @@ img {
   justify-content: space-between;
 }
 
-.navbar-search:focus-within {
-  height: 30rem !important;
+.navbar-search:focus-within > .search svg  {
+  color: var(--clr-bg);
 }
 
 .navbar-search .search svg {
+  position: absolute;
   width: var(--navbar-icon-size);
   height: var(--navbar-icon-size);
-  color: var(--clr-bg);
+  color: #616161;
+
+  pointer-events: none;
 
   margin: 0 1.1rem 0 1.1rem;
 }
 
 .navbar-search .search input {
+  width: 100%;
   height: var(--navbar-button-size);
   font-size: 1.5em;
 
-  flex-grow: 1;
-
+  padding: 0 0 0 calc(var(--navbar-icon-size) * 2);
   background-color: transparent;
   color: var(--clr-bg);
   border: none;
   outline: none;
-}
-
-.navbar-search .search-results {
-  width: 100%;
-  height: 30rem;
-
-  border-top: 1px solid var(--clr-bg-alt);
-  background-color: #3A3B3C;
 }
 
 .navbar-nav {
@@ -169,6 +164,7 @@ img {
   justify-content: center;
   align-items: center;
 
+  cursor: pointer;
   background-color: var(--clr-hover);
   border-radius: 50%;
 }
@@ -182,4 +178,8 @@ img {
   width: var(--navbar-icon-size);
 
   color: var(--clr-text);
+}
+
+.nav-item a:hover > svg {
+  fill: currentColor;
 }
