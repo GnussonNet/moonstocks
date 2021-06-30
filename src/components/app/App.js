@@ -1,11 +1,14 @@
 import { Plus, Star, Menu, Search } from 'react-feather';
+import logo from '../../img/logo.png'
+// var isProd = process.env.NODE_ENV === 'production'; 
 
 function App() {
+
   return (
     <nav className="navbar">
       {/* <h3 className="navbar-title">Moonstocks</h3> */}
       <div className="navbar-logo-container">
-        <img className="navbar-logo" src="./img/logo.png" alt="Logo" />
+        <img className="navbar-logo" src={logo} alt="Logo" />
       </div>
       <div className="navbar-search">
         <div className="search">
@@ -36,6 +39,7 @@ function App() {
       </ul>
     </nav>
   );
+
 }
 
 export default App;
