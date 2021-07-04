@@ -115,7 +115,7 @@ img {
 }
 
 .navbar-logo {
-  width: calc(var(--navbar-button-size) - 2%);
+  width: var(--navbar-button-size);
 }
 
 /* Navbar search */
@@ -219,6 +219,7 @@ main .main-container {
 
 .main-container .main-menu {
   height: 10rem;
+  max-height: 100%;
 
   border-radius: var(--border-radius);
   background-color: var(--clr-bg);
@@ -257,12 +258,13 @@ main .main-container {
   }
 
   .main-container .main-menu-container {
-    min-width: 35rem;
-  
+    min-width: 35rem;  
     border-radius: var(--border-radius);
   }
 
   .main-menu-container .main-menu {
+    position: fixed;
+    max-height: calc(100vh - 9.5rem);
     width: 35rem;
   }
   
