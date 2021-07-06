@@ -103,6 +103,7 @@ img {
 
 .navbar.expanded {
   max-height: 140px;
+  height: 140px;
 
   transition: max-height 100ms ease-out;
 }
