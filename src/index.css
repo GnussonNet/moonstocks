@@ -47,7 +47,7 @@ body {
   font-size: 10px;
 
   font-family: 'Poppins';
-  background-color: var(--clr-bg1);
+  background-color: var(--clr-bg);
   color: var(--clr-text);
 
   overflow: hidden;
@@ -205,6 +205,8 @@ img {
 main {
   width: 100%;
   height: 100%;
+
+  background-color: var(--clr-bg1);
 
   overflow: auto;
 }
