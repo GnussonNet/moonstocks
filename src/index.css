@@ -85,6 +85,7 @@ img {
 /* Navbar */
 .navbar {
   min-height: 56px;
+  height: 140px;
   max-height: 56px;
   overflow: hidden;
 
@@ -103,8 +104,6 @@ img {
 
 .navbar.expanded {
   max-height: 140px;
-  height: 140px;
-
   transition: max-height 100ms ease-out;
 }
 
