@@ -220,11 +220,103 @@ main .main-container {
 }
 
 .main-container .main-menu {
-  height: 10rem;
-  max-height: 100%;
+  /* max-height: 100%; */
+  max-height: 100px;
+  overflow: hidden;
 
   border-radius: var(--border-radius);
   background-color: var(--clr-bg);
+}
+
+.main-container .main-menu.expanded {
+  max-height: 100%;
+}
+
+.main-menu hr {
+  appearance: none;
+  border-color: var(--clr-hover2);
+}
+
+.main-menu .menu-account {
+  padding: 10px;
+}
+
+.main-menu .menu-account-user {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: var(--border-radius);
+  padding: 15px;
+}
+
+.menu-account-user .menu-account-user-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-account-user-name h5{
+  font-size: 18px;
+  line-height: 1.2em;
+}
+
+.menu-account-user-name p {
+  font-size: 12px;
+  color: #A0A0A0;
+}
+
+.menu-account svg {
+  width: 26px;
+  height: 26px;
+
+  transition: rotate 200ms ease-in-out;
+}
+
+.main-menu.expanded .menu-account svg {
+  rotate: -90deg;
+}
+
+.menu-account img {
+  display: none;
+}
+
+.main-menu .menu-items,
+.main-menu .menu-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 10px;
+}
+
+.menu-items .menu-item,
+.menu-settings .menu-item {
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+.menu-account .menu-account-user:hover,
+.menu-items .menu-item:hover,
+.menu-settings .menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.menu-item svg {
+  height: var(--navbar-icon-size);
+  width: var(--navbar-icon-size);
+  margin: 0 15px;
+}
+
+.menu-item p {
+  font-size: 14px;
 }
 
 .main-container .main-content {
@@ -268,6 +360,17 @@ main .main-container {
     position: fixed;
     max-height: calc(100vh - 9.5rem);
     width: 35rem;
+  }
+
+  .menu-account svg {
+    display: none;
+  }
+
+  .menu-account img {
+    display: inherit;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
   
   .main-container .main-content {
