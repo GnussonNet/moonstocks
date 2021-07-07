@@ -257,6 +257,9 @@ main .main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  pointer-events: none;
+  user-select: none;
 }
 
 .menu-account-user-name h5{
@@ -318,6 +321,9 @@ main .main-container {
 
 .menu-item p {
   font-size: 14px;
+
+  pointer-events: none;
+  user-select: none;
 }
 
 .main-container .main-content {
