@@ -60,8 +60,8 @@ function App() {
               <div className="menu-account">
                 <div onClick={toggleMenu} className="menu-account-user">
                   <div className="menu-account-user-name">
-                    <h5>Filip Magnusson</h5>
-                    <p>Premium user</p>
+                    <h3>Filip Magnusson</h3>
+                    <p className="greyedOut">Premium user</p>
                   </div>
                   <img src={User} alt="Profile" />
                   <ChevronLeft />
@@ -112,12 +112,13 @@ function App() {
             <div className="main-content-header">
               <div className="header-text">
                 <h1>Overview</h1>
-                <p>On this page you will get an overview of all active stocks in your watchlists.</p>
+                <p className="greyedOut">On this page you will get an overview of all active stocks in your watchlists.</p>
               </div>
               <div className="header-total">
-                <h5>Total Gain</h5>
-                <div className="total-price">
-                  <p>14.7% / 230 391 KR</p> <ArrowUp />
+                <h3>Total Gain</h3>
+                <div className="total-price positive">
+                  <p className="text-light">14.7% / 230 391 KR</p> 
+                  <ArrowUp />
                 </div>
               </div>
             </div>
@@ -130,36 +131,36 @@ function App() {
 
                 <div className="card">
                   <p className="card-category">Crypto Currency</p>
-                  <p className="card-name">Bitcoin</p>
+                  <h3 className="card-name">Bitcoin</h3>
                   <div className="card-price positive">
-                    <p>0.72% / 201331.95 KR</p>
+                    <p className="text-light">0.72% / 201331.95 KR</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
                   <p className="card-category">NasDaq</p>
-                  <p className="card-name">SnesTech, Inc</p>
+                  <h3 className="card-name">SnesTech, Inc</h3>
                   <div className="card-price negative">
-                    <p>7.272% / 0.12 $</p>
+                    <p className="text-light">7.272% / 0.12 $</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
                   <p className="card-category">Omx</p>
-                  <p className="card-name">Kindred Group</p>
+                  <h3 className="card-name">Kindred Group</h3>
                   <div className="card-price negative">
-                    <p>-1.75% / 2.55 KR</p>
+                    <p className="text-light">-1.75% / 2.55 KR</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
                   <p className="card-category">Omx</p>
-                  <p className="card-name">Intrum</p>
+                  <h3 className="card-name">Intrum</h3>
                   <div className="card-price positive">
-                    <p>0.78% / 2.20 KR</p>
+                    <p className="text-light">0.78% / 2.20 KR</p>
                     <ArrowUp />
                   </div>
                 </div>
@@ -175,33 +176,33 @@ function App() {
               <div className="watchlists">
 
                 <div className="card">
-                  <p className="card-name">My Favorites</p>
+                  <h3 className="card-name">My Favorites</h3>
                   <div className="card-price positive">
-                    <p>0.72% / 201331.95 KR</p>
+                    <p className="text-light">0.72% / 201331.95 KR</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
-                  <p className="card-name">My Watchlist</p>
+                  <h3 className="card-name">My Watchlist</h3>
                   <div className="card-price negative">
-                    <p>7.272% / 0.12 $</p>
+                    <p className="text-light">7.272% / 0.12 $</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
-                  <p className="card-name">Magic Formula</p>
+                  <h3 className="card-name">Magic Formula</h3>
                   <div className="card-price negative">
-                    <p>-1.75% / 2.55 KR</p>
+                    <p className="text-light">-1.75% / 2.55 KR</p>
                     <ArrowUp />
                   </div>
                 </div>
 
                 <div className="card">
-                  <p className="card-name">Crypto Currencies</p>
+                  <h3 className="card-name">Crypto Currencies</h3>
                   <div className="card-price positive">
-                    <p>0.78% / 2.20 KR</p>
+                    <p className="text-light">0.78% / 2.20 KR</p>
                     <ArrowUp />
                   </div>
                 </div>

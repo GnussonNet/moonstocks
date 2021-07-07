@@ -3,10 +3,7 @@
 :root {
   --clr-bg: #1d1d1d;
   --clr-bg1: #343434;
-  --clr-sec: #2d88ff;
-  --clr-sec-alt: rgba(255, 255, 255, 0.1);
   --clr-text: #fcfcfc;
-  --clr-text-alt: #18191a;
 
   --clr-hover: rgba(255, 255, 255, 0.1);
   --clr-hover2: rgba(255, 255, 255, 0.2);
@@ -14,6 +11,7 @@
   --border-radius: 0.8rem;
 
   --navbar-size: 5.6rem;
+  --navbar-max-size: 14rem;
   --navbar-button-size: 4rem;
   --navbar-icon-size: 2rem;
 
@@ -63,14 +61,55 @@ ul {
   list-style: none;
 }
 
+h1 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 1em;
+}
+
+h5 {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+}
+
+p.greyedOut {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+p.text-light {
+  font-size: 1.2rem;
+}
+
+input {
+  font-size: 1.4rem;
 }
 
 img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+hr {
+  appearance: none;
+  border-color: var(--clr-hover2);
+}
+
+.positive p,
+.positive svg {
+  color: #80FF7D;
+}
+
+.negative p,
+.negative svg {
+  color: #FF7B7B;
 }
 
 /* Root */
@@ -84,9 +123,9 @@ img {
 
 /* Navbar */
 .navbar {
-  min-height: 56px;
-  height: 140px;
-  max-height: 56px;
+  min-height: var(--navbar-size);
+  height: var(--navbar-max-size);
+  max-height: var(--navbar-size);
   overflow: hidden;
 
   display: flex;
@@ -103,7 +142,7 @@ img {
 }
 
 .navbar.expanded {
-  max-height: 140px;
+  max-height: var(--navbar-max-size);
   transition: max-height 100ms ease-out;
 }
 
@@ -154,7 +193,6 @@ img {
 .navbar-search input {
   width: 100%;
   height: var(--navbar-button-size);
-  font-size: 1.5em;
 
   color: var(--clr-bg);
   border: none;
@@ -232,11 +270,6 @@ main .main-container {
   max-height: 100%;
 }
 
-.main-menu hr {
-  appearance: none;
-  border-color: var(--clr-hover2);
-}
-
 .main-menu .menu-account {
   padding: 10px;
 }
@@ -260,16 +293,6 @@ main .main-container {
 
   pointer-events: none;
   user-select: none;
-}
-
-.menu-account-user-name h5{
-  font-size: 20px;
-  line-height: 1.2em;
-}
-
-.menu-account-user-name p {
-  font-size: 14px;
-  color: #A0A0A0;
 }
 
 .menu-account svg {
@@ -320,8 +343,6 @@ main .main-container {
 }
 
 .menu-item p {
-  font-size: 16px;
-
   pointer-events: none;
   user-select: none;
 }
@@ -332,7 +353,6 @@ main .main-container {
 }
 
 .main-content hr {
-  border-color: var(--clr-hover);
   margin: 0 0 30px 0;
 }
 
@@ -347,16 +367,6 @@ main .main-container {
   padding: 20px;
 }
 
-.main-content-header .header-text h1 {
-  font-size: 34px;
-  font-weight: 600;
-}
-
-.main-content-header .header-text p {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .main-content-header .header-total {
   border-radius: var(--border-radius);
   padding: 20px 20px;
@@ -364,35 +374,20 @@ main .main-container {
   width: 100%;
 }
 
-.header-total h5 {
-  font-size: 20px;
-  line-height: 1.5em;
-}
-
 .header-total .total-price {
+  margin-top: 6px;
   display: flex;
   align-items: center;
-  gap: 5px;
-}
-
-.header-total .total-price p {
-  color: #80FF7D;
-  font-size: 14px;
+  gap: 4px;
 }
 
 .header-total svg {
-  color: #80FF7D;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
 }
 
-.main-content .main-content-favorites,
-.main-content .main-content-watchlists {
-}
-
-.main-content .main-content-favorites h5,
-.main-content .main-content-watchlists h5 {
-  font-size: 20px;
+.main-content .main-content-favorites > h5,
+.main-content .main-content-watchlists > h5 {
   padding: 0 20px 10px 20px;
 }
 
@@ -415,45 +410,25 @@ main .main-container {
 
 .card .card-category {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 1.1rem;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.7);
 }
 
-.card .card-name {
-  font-size: 22px;
-  font-weight: bold;
-  line-height: 1em;
-}
-
 .card .card-price {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
-  gap: 5px;
+  gap: 4px;
   align-items: center;
 }
 
 .watchlists .card .card-price {
-  margin-top: 5px;
-}
-
-.card-price p {
-  font-size: 14px;
+  margin-top: 6px;
 }
 
 .card-price svg {
-  width: 14px;
-  height: 14px;
-}
-
-.card-price.positive p,
-.card-price.positive svg {
-  color: #80FF7D;
-}
-
-.card-price.negative p,
-.card-price.negative svg {
-  color: #FF7B7B;
+  width: 12px;
+  height: 12px;
 }
 
 
