@@ -432,7 +432,7 @@ main .main-container {
 }
 
 
-@media screen and (min-width: 850px) {
+@media (min-width: 850px) AND (min-height: 710px) {
   .navbar-logo-container {
     width: 20rem;
   }
