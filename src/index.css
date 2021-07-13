@@ -11,7 +11,7 @@
   --border-radius: 0.8rem;
 
   --navbar-size: 5.6rem;
-  --navbar-max-size: 14rem;
+  --navbar-max-size: 12rem;
   --navbar-button-size: 4rem;
   --navbar-icon-size: 2rem;
 
@@ -129,8 +129,9 @@ hr {
   overflow: hidden;
 
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
 
@@ -159,15 +160,20 @@ hr {
 
 /* Navbar search */
 .navbar-search-container {
+  display: none;
   order: 2;
 
   width: 100%;
   height: var(--navbar-button-size);
 
-  margin: 1rem 0 3rem 0;
+  /* margin: 1rem 0 3rem 0; */
   border-radius: var(--border-radius);
   background-color: var(--clr-text);
   overflow: hidden;
+}
+
+.navbar.expanded .navbar-search-container {
+  display: inherit;
 }
 
 .navbar-search {
@@ -416,14 +422,14 @@ main .main-container {
 }
 
 .card .card-price {
-  margin-top: 8px;
+  margin-top: 4px;
   display: flex;
   gap: 4px;
   align-items: center;
 }
 
 .watchlists .card .card-price {
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .card-price svg {
