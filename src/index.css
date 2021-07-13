@@ -451,6 +451,7 @@ main .main-container {
   }
 
   .navbar-search-container {
+    display: inherit;
     order: 1;
     width: 40%;
 
