@@ -124,7 +124,6 @@ hr {
 /* Navbar */
 .navbar {
   min-height: var(--navbar-size);
-  height: var(--navbar-max-size);
   max-height: var(--navbar-size);
   overflow: hidden;
 
@@ -143,7 +142,7 @@ hr {
 }
 
 .navbar.expanded {
-  max-height: var(--navbar-max-size);
+  max-height: 100%;
   transition: max-height 100ms ease-out;
 }
 
@@ -166,7 +165,7 @@ hr {
   width: 100%;
   height: var(--navbar-button-size);
 
-  /* margin: 1rem 0 3rem 0; */
+  margin: 0.5rem 0;
   border-radius: var(--border-radius);
   background-color: var(--clr-text);
   overflow: hidden;
