@@ -13,6 +13,11 @@ function App() {
     element.classList.toggle('expanded');
   }
 
+  window.addEventListener("scroll", (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+  });
+
   return (
     <>
       <nav className="navbar">
