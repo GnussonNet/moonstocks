@@ -1,63 +1,30 @@
-import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings, ChevronLeft, Plus, Star, Menu, Search, ArrowUp } from 'react-feather';
+import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings, ChevronLeft, Plus, Star, Menu, Search, ArrowUp, User, Info } from 'react-feather';
 import Logo from '../../img/logo.png';
-import User from '../../img/user.jpeg';
+import UserImage from '../../img/user.jpeg';
+
+import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
-  function toggleSearch() {
-    var element = document.querySelector('.navbar');
-    element.classList.toggle('expanded');
-  }
-
   function toggleMenu() {
     var element = document.querySelector('.main-menu');
     element.classList.toggle('expanded');
   }
 
-  window.addEventListener("scroll", (e) => {
+  window.addEventListener('scroll', (e) => {
     e.preventDefault();
     window.scrollTo(0, 0);
   });
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-logo-container">
-          <img className="navbar-logo" src={Logo} alt="Logo" />
-        </div>
-        <ul className="navbar-nav">
-          <li className="navbar-nav-item button-search">
-            {/* eslint-disable-next-line */}
-            <a onClick={toggleSearch} className="navbar-icon-button">
-              <Search />
-            </a>
-          </li>
-          <li className="navbar-nav-item">
-            {/* eslint-disable-next-line */}
-            <a className="navbar-icon-button">
-              <Plus />
-            </a>
-          </li>
-          <li className="navbar-nav-item">
-            {/* eslint-disable-next-line */}
-            <a className="navbar-icon-button">
-              <Star />
-            </a>
-          </li>
-          <li className="navbar-nav-item">
-            {/* eslint-disable-next-line */}
-            <a className="navbar-icon-button">
-              <Menu />
-            </a>
-          </li>
-        </ul>
-        <div className="navbar-search-container">
-          <div className="navbar-search">
-            <Search />
-            <input name="navbar-search-input" type="text" placeholder="Search for stock" />
-          </div>
-          <div className="navbar-search-results"></div>
-        </div>
-      </nav>
+      <Navbar>
+        <NavItem icon={<Search />} class="button-search" />
+        <NavItem icon={<Plus />} />
+        <NavItem icon={<Star />} />
+        <NavItem icon={<Menu />}>
+          <DropdownMenu />
+        </NavItem>
+      </Navbar>
       <main>
         <div className="main-container">
           <div className="main-menu-container">
@@ -68,7 +35,7 @@ function App() {
                     <h3>Filip Magnusson</h3>
                     <p className="greyedOut">Premium user</p>
                   </div>
-                  <img src={User} alt="Profile" />
+                  <img src={UserImage} alt="Profile" />
                   <ChevronLeft />
                 </div>
               </div>
@@ -113,7 +80,6 @@ function App() {
             </div>
           </div>
           <div className="main-content">
-
             <div className="main-content-header">
               <div className="header-text">
                 <h1>Overview</h1>
@@ -122,7 +88,7 @@ function App() {
               <div className="header-total">
                 <h3>Total Gain</h3>
                 <div className="total-price positive">
-                  <p className="text-light">14.7% / 230 391 KR</p> 
+                  <p className="text-light">14.7% / 230 391 KR</p>
                   <ArrowUp />
                 </div>
               </div>
@@ -133,7 +99,6 @@ function App() {
             <div className="main-content-favorites">
               <h5>Favorites</h5>
               <div className="favorites">
-
                 <div className="card">
                   <p className="card-category">Crypto Currency</p>
                   <h3 className="card-name">Bitcoin</h3>
@@ -169,8 +134,6 @@ function App() {
                     <ArrowUp />
                   </div>
                 </div>
-
-
               </div>
             </div>
 
@@ -179,7 +142,6 @@ function App() {
             <div className="main-content-watchlists">
               <h5>Watchlists</h5>
               <div className="watchlists">
-
                 <div className="card">
                   <h3 className="card-name">My Favorites</h3>
                   <div className="card-price positive">
@@ -211,15 +173,96 @@ function App() {
                     <ArrowUp />
                   </div>
                 </div>
-
-
               </div>
             </div>
-
           </div>
         </div>
       </main>
     </>
+  );
+}
+
+
+
+
+
+function Navbar(props) {
+  // function toggleSearch() {
+  //   var element = document.querySelector('.navbar');
+  //   element.classList.toggle('expanded');
+  // }
+
+  return (
+    <nav className="navbar">
+      <div className="navbar-logo-container">
+        <img className="navbar-logo" src={Logo} alt="Logo" />
+      </div>
+      <ul className="navbar-nav">{props.children}</ul>
+      <div className="navbar-search-container">
+        <div className="navbar-search">
+          <Search />
+          <input name="navbar-search-input" type="text" placeholder="Search for stock" />
+        </div>
+        <div className="navbar-search-results"></div>
+      </div>
+    </nav>
+  );
+}
+
+
+function NavItem(props) {
+  const [open, setOpen] = useState(false);
+
+  let dropdownMenu = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!dropdownMenu.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    }
+  })
+
+  return (
+    <li className={`navbar-nav-item ${ props.class }`} ref={dropdownMenu}>
+      {/* eslint-disable-next-line */}
+      <a className="navbar-icon-button" onClick={() => setOpen(!open)}>
+        {props.icon}
+      </a>
+
+      {open && props.children}
+    </li>
+  );
+}
+
+
+
+function DropdownMenu() {
+  function DropdownItem(props) {
+    return (
+      <>
+        {/* eslint-disable-next-line */}
+        <a className="dropdown-item">
+          <span className="dropdown-item-icon">{props.leftIcon}</span>
+          {props.children}
+        </a>
+      </>
+    );
+  }
+
+  return (
+    <div className="nav-item-dropdown">
+      <DropdownItem leftIcon={<User />}>My Profile</DropdownItem>
+      <DropdownItem leftIcon={<Briefcase />}>Watchlists</DropdownItem>
+      <DropdownItem leftIcon={<Info />}>About</DropdownItem>
+      <DropdownItem leftIcon={<Settings />}>Settings</DropdownItem>
+    </div>
   );
 }
 
