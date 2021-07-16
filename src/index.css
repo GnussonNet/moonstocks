@@ -373,7 +373,7 @@ main .main-container {
 .main-menu .menu-settings {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 
   padding: 10px;
 }
