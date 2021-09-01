@@ -149,6 +149,7 @@ hr {
 
 /* Navbar logo */
 .navbar-logo-container {
+  height: 100%;
   width: var(--navbar-button-size);
   display: flex;
   align-items: center;
