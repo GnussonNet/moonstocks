@@ -1,0 +1,44 @@
+/*  This file contains all button styles related to the site/application.  */
+
+// Primary
+input.primary-button {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  padding: min(calc(8px + 0.5vw), 10px) min(calc(10px + 1vw), 16px);
+  -webkit-appearance: none;
+  border-radius: 8px;
+  border: 0;
+  background-color: $clr-prim-700;
+  color: $clr-sec-100;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: $clr-sec-100;
+  color: $clr-sec-900;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+  box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+}
+
+// Secondary
+input.secondary-button {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  padding: min(calc(8px + 0.5vw), 10px) min(calc(10px + 1vw), 16px);
+  -webkit-appearance: none;
+  border-radius: 8px;
+  border: 0;
+  background-color: $clr-sec-100;
+  color: $clr-sec-900;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+  box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+  cursor: pointer;
+}
+
+input.secondary-button:hover {
+  background-color: $clr-prim-700;
+  color: $clr-sec-100;
+  box-shadow: none;
+}

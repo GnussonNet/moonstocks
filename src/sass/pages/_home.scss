@@ -1,0 +1,14 @@
+/*  This file contains all styles for the home page related to the site/application.  */
+
+section#home {
+  height: calc(100vh - #{$size-navbar-height} - 6px - 80px);
+  display: flex;
+
+  .container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

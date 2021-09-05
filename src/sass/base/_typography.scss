@@ -1,0 +1,17 @@
+/*  This file contains all typography styles related to the site/application.  */
+
+h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+p.body-text {
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+}
+
+p.caption-text {
+  width: min(33ch, 100%);
+}
