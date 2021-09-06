@@ -13,13 +13,16 @@ section#home {
     flex-direction: column;
     gap: $responsive-padding;
 
-    .sidebar {
+    .sidebar-container {
+      flex-shrink: 0;
+      position: relative;
       width: 100%;
-      height: 200px;
 
-      border-radius: $border-radius;
-
-      background-color: $clr-prim-700;
+      .sidebar {
+        height: 200px;
+        background-color: $clr-prim-700;
+        border-radius: $border-radius;
+      }
     }
 
     .main-content {
@@ -30,6 +33,23 @@ section#home {
 
       background-color: $clr-prim-700;
     }
+  }
 
+  @media (min-width: 850px) and (min-height: 710px) {
+    .container {
+      flex-direction: row;
+
+      .sidebar-container {
+        width: 300px;
+        height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+
+        .sidebar {
+          position: fixed;
+          width: inherit;
+          height: 400px;
+          max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+        }
+      }
+    }
   }
 }
