@@ -1,14 +1,29 @@
 /*  This file contains all styles for the home page related to the site/application.  */
 
 section#home {
-  height: calc(100vh - #{$size-navbar-height} - 6px - 80px);
+  height: calc(100vh - #{$size-navbar-height} - calc(5px + 2vw));
   display: flex;
 
   .container {
     width: 100%;
+    padding: calc(5px + 2vw);
+
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
+    gap: calc(5px + 2vw);
+
+    .sidebar {
+      width: 100%;
+      height: 200px;
+
+      background-color: red;
+    }
+
+    .main-content {
+      width: 100%;
+      height: 10000px;
+
+      background-color: blue;
+    }
+
   }
 }

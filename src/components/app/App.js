@@ -62,6 +62,8 @@ class App extends React.Component {
           <div className="main-container">
             <section id="home">
               <div className="container">
+                <div className="sidebar"></div>
+                <div className="main-content"></div>
               </div>
             </section>
           </div>

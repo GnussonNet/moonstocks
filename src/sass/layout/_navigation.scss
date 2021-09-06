@@ -26,11 +26,15 @@
     }
 
     li {
-      width: $size-navbar-height;
+      padding: 0 calc(3px + 0.2vw);
 
       display: flex;
       align-items: center;
       justify-content: center;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     ul li a {
