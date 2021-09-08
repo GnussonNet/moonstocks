@@ -17,6 +17,7 @@ section#home {
       flex-shrink: 0;
       position: relative;
       width: 100%;
+      display:none;
 
       .side-menu {
         background-color: $clr-prim-700;
@@ -58,12 +59,12 @@ section#home {
     .container {
       flex-direction: row;
 
-      .sidebar-container {
+      .side-menu-container {
         width: 300px;
         height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
         display: inherit;
 
-        .sidebar {
+        .side-menu {
           position: fixed;
           width: inherit;
           max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
