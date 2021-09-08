@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Star, Plus, Search, Home } from 'react-feather';
+import { Menu, Star, Plus, Search } from 'react-feather';
 import Logo from '../../img/logo.png';
 
 class App extends React.Component {
