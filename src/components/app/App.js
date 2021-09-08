@@ -10,8 +10,7 @@ import {
   Clock,
   Bell,
   DollarSign,
-  Settings,
-  ChevronLeft,
+  Settings
 } from "react-feather";
 import Logo from "../../img/logo.png";
 
@@ -76,7 +75,7 @@ class App extends React.Component {
             <section id="home">
               <div className="container">
                 <div className="side-menu-container">
-                  <div className="side-menu">
+                  <div className="side-menu no-select">
                     <ul>
                       <li>
                         <div className="side-menu-account">
@@ -87,46 +86,46 @@ class App extends React.Component {
                           <img src={Logo} />
                         </div>
                       </li>
-                      <hr className="side-menu-account-divider" />
+                      <hr className="side-menu-divider" />
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <Home />
                           <h3>Overview</h3>
                         </div>
                       </li>
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <Briefcase />
                           <h3>Watchlists</h3>
                         </div>
                       </li>
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <BarChart2 />
                           <h3>Statistics</h3>
                         </div>
                       </li>
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <Clock />
                           <h3>Time to sell</h3>
                         </div>
                       </li>
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <Bell />
                           <h3>Alerts</h3>
                         </div>
                       </li>
                       <li>
-                        <div className="side-menu-items">
+                        <div className="side-menu-item">
                           <DollarSign />
                           <h3>Sold stocks</h3>
                         </div>
                       </li>
-                      <hr className="side-menu-settings-divider" />
+                      <hr className="side-menu-divider" />
                       <li>
-                        <div className="side-menu-settings">
+                        <div className="side-menu-item">
                           <Settings />
                           <h3>Settings</h3>
                         </div>

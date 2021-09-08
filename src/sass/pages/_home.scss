@@ -25,86 +25,70 @@ section#home {
 
         ul {
           width: 100%;
-          padding: calc(#{$responsive-padding} / 1.5);
-
+          padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+          height: 100%;
           display: flex;
           flex-direction: column;
 
           li {
             width: 100%;
-            min-height: 70px;
-            height: calc(#{$responsive-padding} * 6);
-            max-height: 75px;
+            height: #{'clamp(60px, calc(#{$responsive-padding} * 3), 75px)'};
             border-radius: $border-radius;
 
             &:first-child {
               display: flex;
               flex-direction: row;
-              padding: calc(#{$responsive-padding} / 1.5);
+              height: #{'clamp(85px, calc(#{$responsive-padding} * 3), 95px)'};
+              padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
             }
-
             &:hover {
               background-color: rgba($color: #000, $alpha: 0.2);
             }
-          }
-          .side-menu-account {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            color: white;
-            justify-content: center;
-            gap: 0.21rem;
 
-            h3 {
-              font-weight: 800;
-              font-size: 0.8rem;
+
+            .side-menu-account {
+              display: flex;
+              flex: 1;
+              flex-direction: column;
+              color: white;
+              justify-content: center;
+              gap: 0.21rem;
+  
+              h3 {
+                font-weight: 800;
+                font-size: 0.9rem;
+              }
+              p {
+                font-weight: 300;
+                font-size: 0.8rem;
+              }
             }
-            p {
-              font-weight: 300;
-              font-size: 0.7rem;
+            .side-menu-account-image {
+              display: flex;
+              width: 2rem;
+              align-items: center;
+            }
+            .side-menu-item {
+              display: flex;
+              height: 100%;
+              flex-direction: row;
+              align-items: center;
+              gap: calc(#{$responsive-padding} / 1.5);
+              padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+  
+              color: white;
+              h3 {
+                font-weight: 400;
+                font-size: 0.9rem;
+              }
             }
           }
-          .side-menu-account-image {
-            display: flex;
-            width: 2rem;
-            align-items: center;
-          }
-          .side-menu-account-divider {
+
+          .side-menu-divider {
             width: 100%;
             border: 1px solid rgba(0, 0, 0, 0.3);
           }
-          .side-menu-items {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 100%;
-            gap: calc(#{$responsive-padding} / 1.5);
-            padding: calc(#{$responsive-padding} / 1.5);
 
-            color: white;
-            h3 {
-              font-weight: 400;
-              font-size: 0.8rem;
-            }
-          }
-          .side-menu-settings {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 100%;
-            gap: calc(#{$responsive-padding} / 1.5);
-            padding: calc(#{$responsive-padding} / 1.5);
-
-            color: white;
-            h3 {
-              font-weight: 400;
-              font-size: 0.8rem;
-            }
-          }
-          .side-menu-settings-divider {
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.3);
-          }
         }
       }
     }
@@ -119,12 +103,12 @@ section#home {
     }
   }
 
-  @media (min-width: 850px) and (min-height: 710px) {
+  @media (min-width: 850px) and (min-height: 750px) {
     .container {
       flex-direction: row;
 
       .side-menu-container {
-        width: 350px;
+        width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};;
         height: calc(
           100vh - #{$size-navbar-height} - (2 * #{$responsive-padding})
         );
