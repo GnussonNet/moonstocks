@@ -31,7 +31,7 @@ class App extends React.Component {
           <div className="container">
             <img src={Logo} alt="Logo of moonstocks" />
             <ul>
-            <li>
+              <li>
                 {/* eslint-disable-next-line */}
                 <a>
                   <Search />
@@ -63,7 +63,16 @@ class App extends React.Component {
             <section id="home">
               <div className="container">
                 <div className="sidebar-container">
-                  <div className="sidebar"></div>
+                  <div className="sidebar">
+                    <ul>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="main-content"></div>
               </div>
