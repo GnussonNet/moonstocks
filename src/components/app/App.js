@@ -74,6 +74,7 @@ class App extends React.Component {
                         <img src={Logo} />
                       </div>
                       </li>
+                      <hr className="side-menu-account-divider" />
                       <li></li>
                       <li></li>
                       <li></li>

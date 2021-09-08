@@ -47,30 +47,34 @@ section#home {
               background-color: rgba($color: #000, $alpha: 0.2);
             }
           }
+          .side-menu-account{
+            display:flex;
+            flex:1;
+            flex-direction: column;
+            color:white;
+            justify-content: center;
+            
+            h3{
+              font-weight: 800;
+              font-size: 0.8rem;
+            }
+            p{
+              font-weight: 300;
+              font-size: 0.7rem;
+            }
+          }
+          .side-menu-account-image{
+            display: flex;
+            width:2rem;
+            align-items: center;
+          }
+          .side-menu-account-divider{
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+          }
         }
       }
-      .side-menu-account{
-        display:flex;
-        flex:1;
-        flex-direction: column;
-        color:white;
-        justify-content: center;
-        gap: 0.1rem;
-        
-        h3{
-          font-weight: 800;
-          font-size: 0.8rem;
-        }
-        p{
-          font-weight: 300;
-          font-size: 0.7rem;
-        }
-      }
-      .side-menu-account-image{
-        display: flex;
-        width:2rem;
-        align-items: center;
-      }
+      
     }
 
     .main-content {
