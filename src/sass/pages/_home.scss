@@ -18,6 +18,8 @@ section#home {
       position: relative;
       width: 100%;
 
+      display: none;
+
       .sidebar {
         background-color: $clr-prim-700;
         border-radius: $border-radius;
@@ -61,6 +63,7 @@ section#home {
       .sidebar-container {
         width: 300px;
         height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+        display: inherit;
 
         .sidebar {
           position: fixed;
