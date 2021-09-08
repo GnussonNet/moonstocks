@@ -121,15 +121,15 @@ Project Link: [https://github.com/GnussonNet/moonstocks](https://github.com/Gnus
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/GnussonNet/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/GnussonNet/moonstocks.svg?style=for-the-badge
 [contributors-url]: https://github.com/GnussonNet/moonstocks/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/GnussonNet/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/GnussonNet/moonstocks.svg?style=for-the-badge
 [forks-url]: https://github.com/GnussonNet/moonstocks/network/members
-[stars-shield]: https://img.shields.io/github/stars/GnussonNet/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/GnussonNet/moonstocks.svg?style=for-the-badge
 [stars-url]: https://github.com/GnussonNet/moonstocks/stargazers
-[issues-shield]: https://img.shields.io/github/issues/GnussonNet/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/GnussonNet/moonstocks.svg?style=for-the-badge
 [issues-url]: https://github.com/GnussonNet/moonstocks/issues
-[license-shield]: https://img.shields.io/github/license/GnussonNet/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/GnussonNet/moonstocks.svg?style=for-the-badge
 [license-url]: https://github.com/GnussonNet/moonstocks/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/GnussonNet
