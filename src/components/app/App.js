@@ -1,6 +1,19 @@
-import React from 'react';
-import { Menu, Star, Plus, Search, Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings, ChevronLeft } from 'react-feather';
-import Logo from '../../img/logo.png';
+import React from "react";
+import {
+  Menu,
+  Star,
+  Plus,
+  Search,
+  Home,
+  Briefcase,
+  BarChart2,
+  Clock,
+  Bell,
+  DollarSign,
+  Settings,
+  ChevronLeft,
+} from "react-feather";
+import Logo from "../../img/logo.png";
 
 class App extends React.Component {
   // fake authentication Promise
@@ -10,15 +23,15 @@ class App extends React.Component {
 
   componentDidMount() {
     this.authenticate().then(() => {
-      const ele = document.getElementById('ldr-screen');
-      const ele1 = document.getElementById('ldr-style');
+      const ele = document.getElementById("ldr-screen");
+      const ele1 = document.getElementById("ldr-style");
       if (ele) {
         // fade out
-        ele.classList.add('available');
+        ele.classList.add("available");
         setTimeout(() => {
           // remove from DOM
-          ele.outerHTML = '';
-          ele1.outerHTML = '';
+          ele.outerHTML = "";
+          ele1.outerHTML = "";
         }, 250);
       }
     });
