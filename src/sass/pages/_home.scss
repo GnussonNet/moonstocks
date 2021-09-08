@@ -13,14 +13,13 @@ section#home {
     flex-direction: column;
     gap: $responsive-padding;
 
-    .sidebar-container {
+    .side-menu-container {
       flex-shrink: 0;
       position: relative;
       width: 100%;
-
-      display: none;
-
-      .sidebar {
+      display:none;
+      
+      .side-menu {
         background-color: $clr-prim-700;
         border-radius: $border-radius;
 
@@ -37,12 +36,39 @@ section#home {
             height: calc(#{$responsive-padding} * 6 );
             max-height: 75px;
             border-radius: $border-radius;
-
+            
+            &:first-child {
+              display: flex;
+              flex-direction: row;
+              padding: calc(#{$responsive-padding} / 1.5);
+            }
+ 
             &:hover {
               background-color: rgba($color: #000, $alpha: 0.2);
             }
           }
         }
+      }
+      .side-menu-account{
+        display:flex;
+        flex:1;
+        flex-direction: column;
+        color:white;
+        justify-content: center;
+        
+        h3{
+          font-weight: 800;
+          font-size: 0.8rem;
+        }
+        p{
+          font-weight: 300;
+          font-size: 0.7rem;
+        }
+      }
+      .side-menu-account-image{
+        display: flex;
+        width:2rem;
+        align-items: center;
       }
     }
 
@@ -60,12 +86,12 @@ section#home {
     .container {
       flex-direction: row;
 
-      .sidebar-container {
-        width: 300px;
+      .side-menu-container {
+        width: 350px;
         height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
         display: inherit;
 
-        .sidebar {
+        .side-menu {
           position: fixed;
           width: inherit;
           max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
