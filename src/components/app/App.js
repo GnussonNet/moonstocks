@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Star, Plus, Search } from 'react-feather';
+import { Menu, Star, Plus, Search, Home } from 'react-feather';
 import Logo from '../../img/logo.png';
 
 class App extends React.Component {
@@ -62,10 +62,18 @@ class App extends React.Component {
           <div className="main-container">
             <section id="home">
               <div className="container">
-                <div className="sidebar-container">
-                  <div className="sidebar">
+                <div className="side-menu-container">
+                  <div className="side-menu">
                     <ul>
-                      <li></li>
+                      <li>
+                      <div className="side-menu-account">
+                        <h3>Filip Magnusson</h3>
+                        <p>Premium user</p>
+                      </div>
+                      <div className="side-menu-account-image">
+                        <img src={Logo} />
+                      </div>
+                      </li>
                       <li></li>
                       <li></li>
                       <li></li>
