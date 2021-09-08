@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/GnussonNet/moonstocks">
-    <img src="https://github.com/GnussonNet/moonstocks/blob/sass/.github/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/GnussonNet/moonstocks/blob/sass/.github/logo.png" alt="Logo" width="80" height="auto">
   </a>
 
   <h3 align="center">Moonstocks</h3>
