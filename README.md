@@ -130,6 +130,6 @@ Project Link: [https://github.com/GnussonNet/moonstocks](https://github.com/Gnus
 [issues-shield]: https://img.shields.io/github/issues/GnussonNet/moonstocks.svg?style=for-the-badge
 [issues-url]: https://github.com/GnussonNet/moonstocks/issues
 [license-shield]: https://img.shields.io/github/license/GnussonNet/moonstocks.svg?style=for-the-badge
-[license-url]: https://github.com/GnussonNet/moonstocks/blob/master/LICENSE.txt
+[license-url]: https://github.com/GnussonNet/moonstocks/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/GnussonNet
