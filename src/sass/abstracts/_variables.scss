@@ -10,7 +10,7 @@ $clr-alert-success: #2ecc71;
 $clr-alert-warning: #f1c40f;
 $clr-alert-failure: #e74c3c;
 
-$size-navbar-height: min(calc(54px + 0.5vw), 60px);
+$size-navbar-height: #{'min(calc(54px + 0.5vw), 60px)'};
 
 $min_width: 400px;
 $max_width: 1920px;

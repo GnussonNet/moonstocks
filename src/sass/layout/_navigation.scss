@@ -45,11 +45,11 @@
       align-items: center;
       cursor: pointer;
 
-      background-color: hsl(0deg 0% 100% / 10%);
+      background-color: #{'hsl(0deg 0% 100% / 10%)'};
       border-radius: 50%;
 
       &:hover {
-        background-color: hsl(0deg 0% 100% / 20%);
+        background-color: #{'hsl(0deg 0% 100% / 20%)'};
       }
     }
 
