@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/GnussonNet/moonstocks">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/GnussonNet/moonstocks/blob/sass/.github/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Moonstocks</h3>
@@ -19,14 +19,14 @@
   <p align="center">
     Moonstocks is a free stocks watchlist tool that focuses...
     <br />
-    <a href="https://github.com/github_username/moonstocks"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/GnussonNet/moonstocks"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/moonstocks">View Demo</a>
+    <a href="https://github.com/GnussonNet/moonstocks">View Demo</a>
     ·
-    <a href="https://github.com/github_username/moonstocks/issues">Report Bug</a>
+    <a href="https://github.com/GnussonNet/moonstocks/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/moonstocks/issues">Request Feature</a>
+    <a href="https://github.com/GnussonNet/moonstocks/issues">Request Feature</a>
   </p>
 </p>
 
