@@ -4,7 +4,7 @@
 input.primary-button {
   font-size: 1.1rem;
   margin-top: 2rem;
-  padding: min(calc(8px + 0.5vw), 10px) min(calc(10px + 1vw), 16px);
+  padding: #{'min(calc(8px + 0.5vw), 10px)'} #{'min(calc(10px + 1vw), 16px)'};
   -webkit-appearance: none;
   border-radius: 8px;
   border: 0;
@@ -25,7 +25,7 @@ input.primary-button {
 input.secondary-button {
   font-size: 1.1rem;
   margin-top: 2rem;
-  padding: min(calc(8px + 0.5vw), 10px) min(calc(10px + 1vw), 16px);
+  padding: #{'min(calc(8px + 0.5vw), 10px)'} #{'min(calc(10px + 1vw), 16px)'};
   -webkit-appearance: none;
   border-radius: 8px;
   border: 0;
