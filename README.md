@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Moonstocks][product-screenshot]](https://github.com/GnussonNet/moonstocks/blob/sass/.github/dashboard.png)
+![Moonstocks Dashboard](https://github.com/GnussonNet/moonstocks/blob/sass/.github/dashboard.png)
 
 
 ### Built With
