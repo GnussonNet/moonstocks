@@ -1,0 +1,22 @@
+/*  This file contains all *variables* related to the site/application.  */
+
+$clr-prim-700: #1d1d1d;
+$clr-prim-400: #343434;
+
+$clr-sec-900: #000000;
+$clr-sec-100: #ffffff;
+
+$clr-alert-success: #2ecc71;
+$clr-alert-warning: #f1c40f;
+$clr-alert-failure: #e74c3c;
+
+$size-navbar-height: #{'min(calc(54px + 0.5vw), 60px)'};
+
+$min_width: 400px;
+$max_width: 1920px;
+$min_font: 16px;
+$max_font: 20px;
+
+$border-radius: 8px;
+
+$responsive-padding: calc(5px + 1vw);

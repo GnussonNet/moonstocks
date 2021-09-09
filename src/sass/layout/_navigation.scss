@@ -1,0 +1,62 @@
+/*  This file contains all navigation styles related to the site/application.  */
+
+.navbar {
+  min-height: $size-navbar-height;
+  max-height: $size-navbar-height;
+  background-color: $clr-prim-700;
+  border-bottom: 1px solid $clr-sec-900;
+  transition: max-height 100ms ease-in;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: calc(#{$size-navbar-height} / 1.6);
+    }
+
+    ul {
+      display: flex;
+    }
+
+    ul,
+    li {
+      height: $size-navbar-height;
+    }
+
+    li {
+      padding: 0 calc(3px + 0.2vw);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    ul li a {
+      width: calc(#{$size-navbar-height} * 0.7);
+      height: calc(#{$size-navbar-height} * 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      background-color: #{'hsl(0deg 0% 100% / 10%)'};
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #{'hsl(0deg 0% 100% / 20%)'};
+      }
+    }
+
+    ul li a svg {
+      color: $clr-sec-100;
+      width: calc(#{$size-navbar-height} * 0.35);
+      height: calc(#{$size-navbar-height} * 0.35);
+    }
+  }
+}
