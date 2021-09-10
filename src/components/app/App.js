@@ -1,6 +1,14 @@
 import React from 'react';
-import { Menu, Star, Plus, Search, Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings } from 'react-feather';
-import Logo from '../../img/logo.png';
+import { BrowserRouter as MemoryRouter, Route, Switch } from 'react-router-dom';
+import Overview from '../pages/Overview';
+import Watchlists from '../pages/Watchlists';
+import Statistics from '../pages/Statistics';
+import TimeToSell from '../pages/TimeToSell';
+import Alerts from '../pages/Alerts';
+import SoldStocks from '../pages/SoldStocks';
+import Settings from '../pages/Settings';
+import Navbar from '../Navbar';
+import Base from '../pages/Base';
 
 class App extends React.Component {
   // fake authentication Promise
@@ -26,107 +34,34 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <nav className="navbar">
-          <div className="container">
-            <img src={Logo} alt="Gnusson logo" />
-            <ul>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a href="#">
-                  <Search />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a href="#">
-                  <Plus />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a href="#">
-                  <Star />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a href="#">
-                  <Menu />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <main>
-          <div className="main-container">
-            <section id="home">
-              <div className="container">
-                <div className="side-menu-container">
-                  <div className="side-menu no-select">
-                    <ul>
-                      <li>
-                        <div className="side-menu-account">
-                          <h3>Filip Magnusson</h3>
-                          <p>Premium user</p>
-                        </div>
-                        <div className="side-menu-account-image">
-                          <img src={Logo} alt="User profile" />
-                        </div>
-                      </li>
-                      <hr className="side-menu-divider" />
-                      <li className="active">
-                        <div className="side-menu-item">
-                          <Home />
-                          <h3>Overview</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Briefcase />
-                          <h3>Watchlists</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <BarChart2 />
-                          <h3>Statistics</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Clock />
-                          <h3>Time to sell</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Bell />
-                          <h3>Alerts</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <DollarSign />
-                          <h3>Sold stocks</h3>
-                        </div>
-                      </li>
-                      <hr className="side-menu-divider" />
-                      <li>
-                        <div className="side-menu-item">
-                          <Settings />
-                          <h3>Settings</h3>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="main-content"></div>
-              </div>
-            </section>
-          </div>
-        </main>
-      </>
+      <MemoryRouter>
+        <Navbar />
+        <Base>
+          <Switch>
+            <Route exact path="/">
+              <Overview />
+            </Route>
+            <Route path="/watchlists">
+              <Watchlists />
+            </Route>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Route path="/time_to_sell">
+              <TimeToSell />
+            </Route>
+            <Route path="/alerts">
+              <Alerts />
+            </Route>
+            <Route path="/sold_stocks">
+              <SoldStocks />
+            </Route>
+            <Route path="/settings">
+              <Settings />
+            </Route>
+          </Switch>
+        </Base>
+      </MemoryRouter>
     );
   }
 }

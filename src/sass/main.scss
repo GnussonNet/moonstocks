@@ -18,7 +18,9 @@
 @import 'components/buttons';
 
 // Layout
+@import 'layout/base';
+@import 'layout/sidemenu';
 @import 'layout/navigation';
 
 // Pages
-@import 'pages/home';
+@import 'pages/overview';

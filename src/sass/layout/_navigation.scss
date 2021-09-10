@@ -37,7 +37,7 @@
       }
     }
 
-    ul li a {
+    ul li div {
       width: calc(#{$size-navbar-height} * 0.7);
       height: calc(#{$size-navbar-height} * 0.7);
       display: flex;
@@ -53,7 +53,7 @@
       }
     }
 
-    ul li a svg {
+    ul li div svg {
       color: $clr-sec-100;
       width: calc(#{$size-navbar-height} * 0.35);
       height: calc(#{$size-navbar-height} * 0.35);
