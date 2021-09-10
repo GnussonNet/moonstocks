@@ -22,6 +22,9 @@ section#home {
       .side-menu {
         background-color: $clr-prim-700;
         border-radius: $border-radius;
+        -webkit-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+        box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
 
         ul {
           width: 100%;
@@ -45,22 +48,27 @@ section#home {
               background-color: rgba($color: #000, $alpha: 0.2);
             }
 
+            &.active svg,
+            &.active h3 {
+              color: $clr-text-header;
+            }
 
             .side-menu-account {
               display: flex;
               flex: 1;
               flex-direction: column;
-              color: white;
+              color: $clr-sec-100;
               justify-content: center;
               gap: 0.21rem;
-  
+
               h3 {
+                color: $clr-text-header;
                 font-weight: 800;
-                font-size: 0.9rem;
+                font-size: 1.1rem;
               }
               p {
                 font-weight: 300;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
               }
             }
             .side-menu-account-image {
@@ -73,22 +81,21 @@ section#home {
               height: 100%;
               flex-direction: row;
               align-items: center;
-              gap: calc(#{$responsive-padding} / 1.5);
+              gap: calc(#{$responsive-padding} / 1);
               padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
-  
-              color: white;
+              color: $clr-sec-100;
+
               h3 {
-                font-weight: 400;
-                font-size: 0.9rem;
+                font-weight: 500;
+                font-size: 1rem;
               }
             }
           }
 
           .side-menu-divider {
             width: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba($color: #000, $alpha: 0.2);
           }
-
         }
       }
     }
@@ -100,6 +107,10 @@ section#home {
       border-radius: $border-radius;
 
       background-color: $clr-prim-700;
+
+      -webkit-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -108,18 +119,14 @@ section#home {
       flex-direction: row;
 
       .side-menu-container {
-        width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};;
-        height: calc(
-          100vh - #{$size-navbar-height} - (2 * #{$responsive-padding})
-        );
+        width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};
+        height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
         display: inherit;
 
         .side-menu {
           position: fixed;
           width: inherit;
-          max-height: calc(
-            100vh - #{$size-navbar-height} - (2 * #{$responsive-padding})
-          );
+          max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
         }
       }
     }
