@@ -22,7 +22,7 @@
     <a href="https://github.com/GnussonNet/moonstocks"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/GnussonNet/moonstocks">View Demo</a>
+    <a href="https://gnusson.net/moonstocks">View Demo</a>
     ·
     <a href="https://github.com/GnussonNet/moonstocks/issues">Report Bug</a>
     ·
