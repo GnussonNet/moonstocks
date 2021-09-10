@@ -1,18 +1,6 @@
-import React from "react";
-import {
-  Menu,
-  Star,
-  Plus,
-  Search,
-  Home,
-  Briefcase,
-  BarChart2,
-  Clock,
-  Bell,
-  DollarSign,
-  Settings
-} from "react-feather";
-import Logo from "../../img/logo.png";
+import React from 'react';
+import { Menu, Star, Plus, Search, Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings } from 'react-feather';
+import Logo from '../../img/logo.png';
 
 class App extends React.Component {
   // fake authentication Promise
@@ -22,15 +10,15 @@ class App extends React.Component {
 
   componentDidMount() {
     this.authenticate().then(() => {
-      const ele = document.getElementById("ldr-screen");
-      const ele1 = document.getElementById("ldr-style");
+      const ele = document.getElementById('ldr-screen');
+      const ele1 = document.getElementById('ldr-style');
       if (ele) {
         // fade out
-        ele.classList.add("available");
+        ele.classList.add('available');
         setTimeout(() => {
           // remove from DOM
-          ele.outerHTML = "";
-          ele1.outerHTML = "";
+          ele.outerHTML = '';
+          ele1.outerHTML = '';
         }, 250);
       }
     });
@@ -41,29 +29,29 @@ class App extends React.Component {
       <>
         <nav className="navbar">
           <div className="container">
-            <img src={Logo} alt="Logo of moonstocks" />
+            <img src={Logo} alt="Gnusson logo" />
             <ul>
               <li>
                 {/* eslint-disable-next-line */}
-                <a>
+                <a href="#">
                   <Search />
                 </a>
               </li>
               <li>
                 {/* eslint-disable-next-line */}
-                <a>
+                <a href="#">
                   <Plus />
                 </a>
               </li>
               <li>
                 {/* eslint-disable-next-line */}
-                <a>
+                <a href="#">
                   <Star />
                 </a>
               </li>
               <li>
                 {/* eslint-disable-next-line */}
-                <a>
+                <a href="#">
                   <Menu />
                 </a>
               </li>
@@ -83,11 +71,11 @@ class App extends React.Component {
                           <p>Premium user</p>
                         </div>
                         <div className="side-menu-account-image">
-                          <img src={Logo} />
+                          <img src={Logo} alt="User profile" />
                         </div>
                       </li>
                       <hr className="side-menu-divider" />
-                      <li>
+                      <li className="active">
                         <div className="side-menu-item">
                           <Home />
                           <h3>Overview</h3>
