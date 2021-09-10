@@ -17,7 +17,7 @@
   <h3 align="center">Moonstocks</h3>
 
   <p align="center">
-    Moonstocks is a free stocks watching tool, build for peoples who buys and sells Magic Formula stocks.
+    Moonstocks is a free stocks watchlist tool, build for peoples who buys and sells Magic Formula stocks.
     <br />
     <a href="https://github.com/GnussonNet/moonstocks"><strong>Explore the docs »</strong></a>
     <br />
