@@ -35,7 +35,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <MemoryRouter>
+      <MemoryRouter basename="moonstocks">
         <Navbar />
         <Base>
           <Switch>
