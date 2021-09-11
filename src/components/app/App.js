@@ -7,7 +7,7 @@ import TimeToSell from '../pages/TimeToSell';
 import Alerts from '../pages/Alerts';
 import SoldStocks from '../pages/SoldStocks';
 import Settings from '../pages/Settings';
-import Navbar from '../Navbar';
+import Navbar from '../Navbar/Navbar';
 import Base from '../pages/Base';
 import Page404 from '../pages/Page404';
 

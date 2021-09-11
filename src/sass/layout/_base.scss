@@ -12,23 +12,26 @@ section#base {
     display: flex;
     flex-direction: column;
     gap: $responsive-padding;
+
+    .main-content {
+      width: 100%;
+      height: 2000px;
+    
+      background-color: $clr-prim-700;
+      color: $clr-sec-100;
+      padding: #{'clamp(20px, calc(#{$responsive-padding} * 2), 50px)'};
+    
+      border-radius: $border-radius;
+    
+      -webkit-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+    }
   }
 
   @media (min-width: 850px) and (min-height: 750px) {
     .container {
       flex-direction: row;
-
-      .side-menu-container {
-        width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};
-        height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
-        display: inherit;
-
-        .side-menu {
-          position: fixed;
-          width: inherit;
-          max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
-        }
-      }
     }
   }
 }

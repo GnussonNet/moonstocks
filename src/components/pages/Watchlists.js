@@ -1,6 +1,12 @@
 const Watchlists = () => {
   return (
-    <h1>watchlists</h1>
+    <section id="Watchlists">
+      <div className="header">
+        <h1>Watchlists</h1>
+        <p>On this page you will see all your watchlists. You will also be able to create, delete and edit your lists.</p>
+        <hr />
+      </div>
+    </section>
   );
 };
 

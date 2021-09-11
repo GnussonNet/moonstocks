@@ -4,6 +4,7 @@
   width: 100%;
   display: none;
 
+
   .side-menu {
     background-color: $clr-prim-700;
     border-radius: $border-radius;
@@ -79,8 +80,22 @@
 
       .side-menu-divider {
         width: 100%;
-        border: 1px solid rgba($color: #000, $alpha: 0.2);
+        border: 1px solid rgba($color: #000, $alpha: 0.6);
       }
+    }
+  }
+}
+
+@media (min-width: 850px) and (min-height: 750px) {
+  .side-menu-container {
+    width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};
+    height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+    display: inherit;
+  
+    .side-menu {
+      position: fixed;
+      width: inherit;
+      max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
     }
   }
 }

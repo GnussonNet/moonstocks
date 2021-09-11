@@ -1,7 +1,11 @@
 import { Menu, Star, Plus, Search } from 'react-feather';
-import Logo from '../img/logo.png';
+import Logo from '../../img/logo.png';
+import { useState } from 'react';
+import Dropdown from './Dropdown';
 
 const Navbar = () => {
+  const [dropdown, setDropdown] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="container">
@@ -22,13 +26,16 @@ const Navbar = () => {
               <Star />
             </div>
           </li>
-          <li>
-            <div href="#">
+          <li className="smallDeviceMenu">
+            <div onClick={() => setDropdown(!dropdown)}>
               <Menu />
             </div>
           </li>
         </ul>
       </div>
+
+      { dropdown && <Dropdown /> }
+
     </nav>
   );
 };
