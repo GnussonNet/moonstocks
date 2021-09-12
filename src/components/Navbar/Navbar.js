@@ -34,7 +34,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      { dropdown && <Dropdown /> }
+      { dropdown && <Dropdown passDropdown={setDropdown} /> }
 
     </nav>
   );
