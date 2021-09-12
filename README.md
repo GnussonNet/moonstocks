@@ -118,6 +118,10 @@ Filip Magnusson - [@GnussonNet](https://twitter.com/GnussonNet) - support@gnusso
 Project Link: [https://github.com/GnussonNet/moonstocks](https://github.com/GnussonNet/moonstocks)
 
 
+## Credits for Readme file
+I'm using [Othneildrew](https://github.com/othneildrew)'s [Best README Template](https://github.com/othneildrew/Best-README-Template).
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
