@@ -1,16 +1,32 @@
 import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, User, Settings } from 'react-feather';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const Dropdown = (props) => {
   const [dropdown, setDropdown] = useState(true);
   const handleNavLinkClick = () => {
     setDropdown(!dropdown);
     props.passDropdown(!dropdown);
-  }
+  };
+
+  const node = useRef();
+
+  const handleClick = (e) => {
+    if (!node.current.contains(e.target)) {
+      handleNavLinkClick();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
 
   return (
-    <div className="dropdown-container">
+    <div ref={node} className="dropdown-container">
       <div className="dropdown no-select">
         <ul>
           <li>
