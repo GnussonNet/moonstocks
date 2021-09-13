@@ -10,6 +10,7 @@ import Settings from '../pages/Settings';
 import Navbar from '../Navbar/Navbar';
 import Base from '../pages/Base';
 import Page404 from '../pages/Page404';
+import Account from '../pages/Account';
 
 class App extends React.Component {
   // fake authentication Promise
@@ -56,6 +57,9 @@ class App extends React.Component {
             </Route>
             <Route path="/sold_stocks">
               <SoldStocks />
+            </Route>
+            <Route path="/account">
+              <Account />
             </Route>
             <Route path="/settings">
               <Settings />
