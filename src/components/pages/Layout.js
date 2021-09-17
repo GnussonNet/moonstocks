@@ -2,7 +2,7 @@ import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings } from 'r
 import Logo from '../../img/logo.png';
 import { NavLink } from 'react-router-dom';
 
-const Base = (props) => {
+const Layout = (props) => {
   return (
     <main>
       <div className="main-container">
@@ -22,7 +22,7 @@ const Base = (props) => {
                   </li>
                   <hr className="side-menu-divider" />
                   <li>
-                    <NavLink exact to="/" className="side-menu-item">
+                    <NavLink exact to="/overview" className="side-menu-item">
                       <Home />
                       <h3>Overview</h3>
                     </NavLink>
@@ -77,4 +77,4 @@ const Base = (props) => {
   );
 };
 
-export default Base;
+export default Layout;
