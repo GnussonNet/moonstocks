@@ -8,8 +8,13 @@ const Login = () => {
   const [signInReq, setSignInReq] = useState('');
   const { signinWithEmailAndPassword } = useAuth();
 
+  const loadingScreen = document.getElementById('ldr-screen');
+
   // Sign in user and return boolean, then redirect to homepage
   const onSigninWithEmailAndPassword = async () => {
+    if (loadingScreen && loadingScreen.style !== 'flex') {
+      loadingScreen.style.display = 'flex';
+    }
     try {
       const res = await signinWithEmailAndPassword(signInReq.email[0], signInReq.password[0]);
       console.log(res);
@@ -37,9 +42,11 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input type="password" name="password" onChange={handleSignInChange} />
       </div>
-      <div className="checkbox-field">
-        <input type="checkbox" name="rememberMe" />
-        <label htmlFor="rememberMe">Remember me</label>
+      <div className="rememberMe">
+        <label>
+          <input type="checkbox" />
+          Remember me
+        </label>
       </div>
 
       <button type="submit" id="btnSignIn" onClick={onSigninWithEmailAndPassword}>

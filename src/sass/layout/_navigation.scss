@@ -41,6 +41,11 @@
       &:last-child {
         padding-right: 0;
       }
+
+      &.loginPage p {
+        color: $clr-sec-100;
+        padding: 0 15px;
+      }
     }
 
     ul li div {
