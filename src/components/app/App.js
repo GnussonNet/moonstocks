@@ -18,7 +18,15 @@ import Signin from '../pages/Signin';
 import CreateAccount from '../pages/CreateAccount';
 
 const App = () => {
-  const { user } = useAuth();
+  const { user, signinWithJwtRefreshToken } = useAuth();
+
+  useEffect(() => {
+    async function fetchUser() {
+      await signinWithJwtRefreshToken();
+    }
+    fetchUser();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,7 +34,7 @@ const App = () => {
       if (loadingScreen && loadingScreen.style !== 'none') {
         loadingScreen.style.display = 'none';
       }
-    }, 750)
+    }, 750);
   });
 
   return (

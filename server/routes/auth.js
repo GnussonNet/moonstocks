@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { registerValidation, signinValidation } = require('../validation');
 
-const jwtExpiry = '5s';
+const jwtExpiry = '2m';
 const jwtRefreshExpiry = '120d';
 
 router.post('/register', async (req, res) => {
@@ -55,7 +55,7 @@ router.post('/signin', async (req, res) => {
   // Create token
   const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: jwtExpiry });
   const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: jwtRefreshExpiry });
-  res.status(202).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, jwt_token_expiry: jwtExpiry, message: 'Signed in!' });
+  res.status(202).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, message: 'Signed in!' });
 });
 
 router.post('/refresh_token', async (req, res) => {
@@ -68,10 +68,19 @@ router.post('/refresh_token', async (req, res) => {
 
     const newAccessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: jwtExpiry });
     const newRefreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: jwtRefreshExpiry });
+    const usersName = `${user.firstName} ${user.lastName}`;
 
-    res.status(202).cookie('refreshToken', newRefreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: newAccessToken, jwt_token_expiry: jwtExpiry, message: 'Signed in!' });
+    res.status(202).cookie('refreshToken', newRefreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: newAccessToken, name: usersName, message: 'Signed in!' });
   } catch {
     res.status(400).send('Invalid Refresh Token');
+  }
+});
+
+router.post('/logout', async (req, res) => {
+  try {
+    res.status(202).cookie('refreshToken', '', { maxAge: 0 }).json({ message: 'Logged out!' });
+  } catch {
+    res.status(400).send('Error while logging out');
   }
 });
 

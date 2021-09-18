@@ -2,23 +2,29 @@ import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings } from 'r
 import Logo from '../../img/logo.png';
 import { NavLink } from 'react-router-dom';
 
+import { useAuth } from '../hooks/useAuth';
+
 const Layout = (props) => {
+  const { user } = useAuth();
+
   return (
     <main>
       <div className="main-container">
-        <section id="base">
+        <section id="layout">
           <div className="container">
             <div className="side-menu-container">
               <div className="side-menu no-select">
                 <ul>
                   <li>
-                    <div className="side-menu-account">
-                      <h3>Filip Magnusson</h3>
-                      <p>Premium user</p>
-                    </div>
-                    <div className="side-menu-account-image">
-                      <img src={Logo} alt="User profile" />
-                    </div>
+                    <NavLink exact to="/account" className="side-menu-item">
+                      <div className="side-menu-account">
+                        <h3>{ user && (user.name)}</h3>
+                        <p>Premium user</p>
+                      </div>
+                      <div className="side-menu-account-image">
+                        <img src={Logo} alt="User profile" />
+                      </div>
+                    </NavLink>
                   </li>
                   <hr className="side-menu-divider" />
                   <li>
@@ -67,9 +73,7 @@ const Layout = (props) => {
                 </ul>
               </div>
             </div>
-            <div className="main-content">
-              { props.children }
-            </div>
+            <div className="main-content">{props.children}</div>
           </div>
         </section>
       </div>
