@@ -21,6 +21,13 @@ const Account = () => {
     }
   };
 
+  const handleLogout = async () => {
+    const res = logout();
+    if (res) {
+      window.location.reload();
+    }
+  };
+
   return (
     <section id="Account">
       <div className="header">
@@ -33,7 +40,7 @@ const Account = () => {
         <button type="submit" id="btnCheckAccessToken" onClick={checkAccessToken}>
           Check Access Token
         </button>
-        <button type="submit" id="btnCheckAccessToken" onClick={logout}>
+        <button type="submit" id="btnCheckAccessToken" onClick={handleLogout}>
           Logout
         </button>
       </div>

@@ -65,22 +65,20 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Create account with Email and Password
-  const createAccountWithEmailAndPassword = async (email, password) => {
+  const createAccountWithEmailAndPassword = async (firstName, lastName, email, password) => {
     try {
-      const res = await axios.post('http://localhost:5001/api/user/signin', {
+      const res = await axios.post('http://localhost:5001/api/user/register', {
+        firstName: firstName,
+        lastName: lastName,
         email: email,
         password: password,
       });
-
-      const decodedToken = jwt_decode(res.data.jwt_token);
-      const tickToDate = new Date(0);
-      tickToDate.setUTCSeconds(decodedToken.exp);
 
       // Store jwt token and expiry time
       setUser({
         ...user,
         jwt_token: res.data.jwt_token,
-        jwt_token_expiry: tickToDate,
+        jwt_token_expiry: res.data.jwt_token_expiry,
       });
 
       // Return true of successful
@@ -95,8 +93,7 @@ export const AuthProvider = ({ children }) => {
   // Logout user
   const logout = async () => {
     try {
-      const res = await axios.post('http://localhost:5001/api/user/logout');
-      console.log(res);
+      await axios.post('http://localhost:5001/api/user/logout');
       // Return true of successful
       return true;
     } catch (err) {

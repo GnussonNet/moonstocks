@@ -10,64 +10,11 @@ section#Account {
     margin: #{'clamp(20px, calc(#{$responsive-padding} * 2), 50px)'} 0;
   }
 
-  .createAccount,
-  .signIn {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    input,
-    button {
-      padding: 5px 2px;
-    }
-
-    .name {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-
-      .firstName,
-      .lastName {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-      }
-    }
-
-    .email,
-    .password {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    #btnCreateAccount,
-    #btnSignIn {
-      margin-top: 20px;
-      width: 100%;
-    }
-  }
-
   h2 {
     margin-top: 50px;
   }
 
-  .refreshToken {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #btnCheckRefreshToken {
-    margin-top: 20px;
-    padding: 5px;
-    width: 100%;
-  }
-
   .token {
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;
