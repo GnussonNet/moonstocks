@@ -1,6 +1,6 @@
 /*  This file contains all styles for the home page related to the site/application.  */
 
-section#base {
+section#layout {
   min-height: calc(100vh - #{$size-navbar-height});
   display: flex;
 

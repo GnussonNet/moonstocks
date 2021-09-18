@@ -69,3 +69,7 @@ main {
     flex-direction: column;
   }
 }
+
+input {
+  accent-color: $clr-text-header;
+}
