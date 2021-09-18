@@ -18,7 +18,7 @@ const Layout = (props) => {
                   <li>
                     <NavLink exact to="/account" className="side-menu-item">
                       <div className="side-menu-account">
-                        <h3>{ user && (user.name)}</h3>
+                        <h3>{ user ? user.name : 'Users Name'}</h3>
                         <p>Premium user</p>
                       </div>
                       <div className="side-menu-account-image">

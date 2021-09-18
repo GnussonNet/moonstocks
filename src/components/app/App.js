@@ -18,11 +18,15 @@ import Signin from '../pages/Signin';
 import CreateAccount from '../pages/CreateAccount';
 
 const App = () => {
-  const { user, signinWithJwtRefreshToken } = useAuth();
+  const { user, isSignedIn, signinWithJwtRefreshToken } = useAuth();
 
+  // Check if user is signed in at star
+  // If user is signed in, sign user in
   useEffect(() => {
     async function fetchUser() {
-      await signinWithJwtRefreshToken();
+      if (await isSignedIn()) {
+        await signinWithJwtRefreshToken();
+      }
     }
     fetchUser();
     // eslint-disable-next-line
@@ -34,7 +38,7 @@ const App = () => {
       if (loadingScreen && loadingScreen.style !== 'none') {
         loadingScreen.style.display = 'none';
       }
-    }, 750);
+    }, 250);
   });
 
   return (
@@ -59,6 +63,9 @@ const App = () => {
           <Navbar />
           <Layout>
             <Switch>
+              <PrivateRoute path="/login">
+                <Redirect to="/overview" />
+              </PrivateRoute>
               <PrivateRoute exact path="/">
                 <Redirect to="/overview" />
               </PrivateRoute>

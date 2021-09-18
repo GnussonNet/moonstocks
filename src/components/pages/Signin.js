@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 
 const Login = () => {
-  const history = useHistory();
   const [signInReq, setSignInReq] = useState('');
   const { signinWithEmailAndPassword } = useAuth();
 
@@ -16,11 +14,7 @@ const Login = () => {
       loadingScreen.style.display = 'flex';
     }
     try {
-      const res = await signinWithEmailAndPassword(signInReq.email[0], signInReq.password[0]);
-      console.log(res);
-      if (res) {
-        history.push('/overview');
-      }
+      await signinWithEmailAndPassword(signInReq.email[0], signInReq.password[0]);
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
 const AuthContext = createContext();
 
 // Hook for child components to get the auth object ...
@@ -14,6 +13,16 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   axios.defaults.withCredentials = true;
+
+  // Check if user is signed in
+  const isSignedIn = async () => {
+    try {
+      const res = await axios.post('http://localhost:5001/api/user/is_signed_in');
+      return res.data.isSignedIn;
+    } catch (error) {
+      console.log('Something went wrong when checking signed in status');
+    }
+  };
 
   // Sign in user with refresh token
   const signinWithJwtRefreshToken = async () => {
@@ -44,15 +53,11 @@ export const AuthProvider = ({ children }) => {
         password: password,
       });
 
-      const decodedToken = jwt_decode(res.data.jwt_token);
-      const tickToDate = new Date(0);
-      tickToDate.setUTCSeconds(decodedToken.exp);
-
       // Store jwt token and expiry time
       setUser({
         ...user,
+        name: res.data.name,
         jwt_token: res.data.jwt_token,
-        jwt_token_expiry: tickToDate,
       });
 
       // Return true of successful
@@ -77,8 +82,8 @@ export const AuthProvider = ({ children }) => {
       // Store jwt token and expiry time
       setUser({
         ...user,
+        name: res.data.name,
         jwt_token: res.data.jwt_token,
-        jwt_token_expiry: res.data.jwt_token_expiry,
       });
 
       // Return true of successful
@@ -131,6 +136,7 @@ export const AuthProvider = ({ children }) => {
 
   const values = {
     user,
+    isSignedIn,
     isAuthenticating,
     signinWithJwtRefreshToken,
     signinWithEmailAndPassword,

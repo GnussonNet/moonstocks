@@ -55,7 +55,9 @@ router.post('/signin', async (req, res) => {
   // Create token
   const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: jwtExpiry });
   const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: jwtRefreshExpiry });
-  res.status(202).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, message: 'Signed in!' });
+  const usersName = `${user.firstName} ${user.lastName}`;
+
+  res.status(202).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, name: usersName, message: 'Signed in!' });
 });
 
 router.post('/refresh_token', async (req, res) => {
@@ -73,6 +75,15 @@ router.post('/refresh_token', async (req, res) => {
     res.status(202).cookie('refreshToken', newRefreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: newAccessToken, name: usersName, message: 'Signed in!' });
   } catch {
     res.status(400).send('Invalid Refresh Token');
+  }
+});
+
+router.post('/is_signed_in', async (req, res) => {
+  const refreshToken = req.cookies['refreshToken'];
+  if (refreshToken) {
+    res.status(202).json({ isSignedIn: true });
+  } else {
+    res.status(202).json({ isSignedIn: false });
   }
 });
 
