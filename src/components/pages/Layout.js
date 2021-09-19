@@ -18,7 +18,7 @@ const Layout = (props) => {
                   <li>
                     <NavLink exact to="/account" className="side-menu-item">
                       <div className="side-menu-account">
-                        <h3>{ user ? user.name : 'Users Name'}</h3>
+                        <h5>{ user ? user.name : 'Users Name'}</h5>
                         <p>Premium user</p>
                       </div>
                       <div className="side-menu-account-image">
@@ -30,44 +30,44 @@ const Layout = (props) => {
                   <li>
                     <NavLink exact to="/overview" className="side-menu-item">
                       <Home />
-                      <h3>Overview</h3>
+                      <h5>Overview</h5>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/watchlists" className="side-menu-item">
                       <Briefcase />
-                      <h3>Watchlists</h3>
+                      <h5>Watchlists</h5>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/statistics" className="side-menu-item">
                       <BarChart2 />
-                      <h3>Statistics</h3>
+                      <h5>Statistics</h5>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/time_to_sell" className="side-menu-item">
                       <Clock />
-                      <h3>Time to sell</h3>
+                      <h5>Time to sell</h5>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/alerts" className="side-menu-item">
                       <Bell />
-                      <h3>Alerts</h3>
+                      <h5>Alerts</h5>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/sold_stocks" className="side-menu-item">
                       <DollarSign />
-                      <h3>Sold stocks</h3>
+                      <h5>Sold stocks</h5>
                     </NavLink>
                   </li>
                   <hr className="side-menu-divider" />
                   <li>
                     <NavLink to="/settings" className="side-menu-item">
                       <Settings />
-                      <h3>Settings</h3>
+                      <h5>Settings</h5>
                     </NavLink>
                   </li>
                 </ul>

@@ -32,6 +32,7 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
 
+  // Remove loading screen on every page render
   useEffect(() => {
     setTimeout(() => {
       const loadingScreen = document.getElementById('ldr-screen');
@@ -43,9 +44,11 @@ const App = () => {
 
   return (
     <Router basename="moonstocks">
+
+      {/* Displayed when user is not signed in */}
       {!user && (
         <Switch>
-          <Route exact path="/login">
+          <Route exact path="/signin">
             <Navbar />
             <Signin />
           </Route>
@@ -54,16 +57,18 @@ const App = () => {
             <CreateAccount />
           </Route>
           <Route path="*">
-            <Redirect to="/login" />
+            <Redirect to="/signin" />
           </Route>
         </Switch>
       )}
+
+      {/* Displayed when a user is signed in */}
       {user && (
         <>
           <Navbar />
           <Layout>
             <Switch>
-              <PrivateRoute path="/login">
+              <PrivateRoute path="/signin">
                 <Redirect to="/overview" />
               </PrivateRoute>
               <PrivateRoute exact path="/">

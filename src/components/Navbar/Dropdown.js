@@ -4,6 +4,9 @@ import { useEffect, useState, useRef } from 'react';
 
 const Dropdown = (props) => {
   const [dropdown, setDropdown] = useState(true);
+
+
+  // Set and pass the dropdown boolean
   const handleNavLinkClick = () => {
     setDropdown(!dropdown);
     props.passDropdown(!dropdown);
@@ -17,6 +20,7 @@ const Dropdown = (props) => {
     }
   };
 
+  // Check for mousedown event
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 

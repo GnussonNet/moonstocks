@@ -134,6 +134,7 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  // Values for AuthContext
   const values = {
     user,
     isSignedIn,

@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 const PrivateRoute = ({children, ...rest}) => {
   const {user} = useAuth();
 
+  // Private route, basically shows children if a user exists
   return (
     <Route
       {...rest}

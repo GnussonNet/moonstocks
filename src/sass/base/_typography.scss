@@ -1,17 +1,43 @@
 /*  This file contains all typography styles related to the site/application.  */
 
 h1 {
-  font-weight: 800;
   font-size: 2rem;
+  font-weight: 800;
   line-height: 2.2rem;
   margin-bottom: 0.5rem;
 }
 
-p.body-text {
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
+}
+
+h4 {
   font-size: 1.2rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.1rem;
   line-height: 1.3rem;
 }
 
-p.caption-text {
-  width: #{'min(33ch, 100%)'};
+input {
+  font-size: 1.1rem;
+}
+
+label {
+  font-size: 1.1rem;
 }

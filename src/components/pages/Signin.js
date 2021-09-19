@@ -10,6 +10,7 @@ const Login = () => {
 
   // Sign in user and return boolean, then redirect to homepage
   const onSigninWithEmailAndPassword = async () => {
+    // Check if loading screen is visible, if not, show it
     if (loadingScreen && loadingScreen.style !== 'flex') {
       loadingScreen.style.display = 'flex';
     }

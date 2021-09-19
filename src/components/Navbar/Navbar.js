@@ -19,12 +19,12 @@ const Navbar = () => {
             <>
               <li className="loginPage">
                 <NavLink to="/login" className="side-menu-item">
-                  <p>Login</p>
+                  <h5>Login</h5>
                 </NavLink>
               </li>
               <li className="loginPage">
                 <NavLink to="/create_account" className="side-menu-item">
-                  <p>Create Account</p>
+                  <h5>Create Account</h5>
                 </NavLink>
               </li>
             </>

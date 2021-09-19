@@ -34,7 +34,7 @@
         }
 
         .active svg,
-        .active h3 {
+        .active h5 {
           color: $clr-text-header;
         }
 
@@ -46,10 +46,8 @@
           justify-content: center;
           gap: 0.21rem;
 
-          h3 {
+          h5 {
             color: $clr-text-header;
-            font-weight: 800;
-            font-size: 1.1rem;
           }
           p {
             font-weight: 300;
@@ -70,17 +68,7 @@
           gap: calc(#{$responsive-padding} / 1);
           padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
           color: $clr-sec-100;
-
-          h3 {
-            font-weight: 500;
-            font-size: 1rem;
-          }
         }
-      }
-
-      .side-menu-divider {
-        width: 100%;
-        border: 1px solid rgba($color: #000, $alpha: 0.6);
       }
     }
   }

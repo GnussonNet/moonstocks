@@ -7,6 +7,7 @@ import { AuthProvider } from './components/hooks/useAuth';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* Enables passing useAuth function and variables  */}
     <AuthProvider>
       <App />
     </AuthProvider>
