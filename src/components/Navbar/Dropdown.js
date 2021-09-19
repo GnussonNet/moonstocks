@@ -30,7 +30,7 @@ const Dropdown = (props) => {
       <div className="dropdown no-select">
         <ul>
           <li>
-            <NavLink exact to="/" className="dropdown-item" onClick={() => handleNavLinkClick()}>
+            <NavLink to="/overview" className="dropdown-item" onClick={() => handleNavLinkClick()}>
               <Home />
               <h3>Overview</h3>
             </NavLink>
