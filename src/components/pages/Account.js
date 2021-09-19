@@ -37,10 +37,10 @@ const Account = () => {
         <div className="token">
           <label htmlFor="token">Check Token</label>
         </div>
-        <button type="submit" id="btnCheckAccessToken" onClick={checkAccessToken}>
+        <button type="submit" onClick={checkAccessToken}>
           Check Access Token
         </button>
-        <button type="submit" id="btnCheckAccessToken" onClick={handleLogout}>
+        <button type="submit" onClick={handleLogout}>
           Logout
         </button>
       </div>
