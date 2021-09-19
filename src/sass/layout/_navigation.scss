@@ -46,9 +46,13 @@
         height: 100%;
         display: flex;
         align-items: center;
+        color: $clr-sec-100;
+
+        &.active, &:hover {
+          color: $clr-text-header;
+        }
 
       & p {
-        color: $clr-sec-100;
         padding: 0 15px;
       }
       }
