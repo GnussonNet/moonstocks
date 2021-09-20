@@ -21,8 +21,13 @@ const Account = () => {
     }
   };
 
+  const loadingScreen = document.getElementById('ldr-screen');
+
   // Logout user and refresh page
   const handleLogout = async () => {
+    if (loadingScreen && loadingScreen.style !== 'flex') {
+      loadingScreen.style.display = 'flex';
+    }
     const res = logout();
     if (res) {
       window.location.reload();
