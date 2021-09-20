@@ -18,8 +18,8 @@ const Navbar = () => {
           {!user && (
             <>
               <li className="loginPage">
-                <NavLink to="/login" className="side-menu-item">
-                  <h5>Login</h5>
+                <NavLink to="/signin" className="side-menu-item">
+                  <h5>Sign In</h5>
                 </NavLink>
               </li>
               <li className="loginPage">
