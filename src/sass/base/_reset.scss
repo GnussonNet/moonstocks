@@ -46,3 +46,7 @@ input{
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+input[type="checkbox"] {
+  -webkit-appearance: auto;
+}

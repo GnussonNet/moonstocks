@@ -1,0 +1,89 @@
+.side-menu-container {
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  display: none;
+
+
+  .side-menu {
+    background-color: $clr-prim-700;
+    border-radius: $border-radius;
+    -webkit-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+
+    ul {
+      width: 100%;
+      padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        width: 100%;
+        height: #{'clamp(60px, calc(#{$responsive-padding} * 3), 75px)'};
+        border-radius: $border-radius;
+
+        &:first-child {
+          display: flex;
+          flex-direction: row;
+          height: #{'clamp(85px, calc(#{$responsive-padding} * 3), 95px)'};
+        }
+        &:hover {
+          background-color: rgba($color: #000, $alpha: 0.2);
+        }
+
+        .active svg,
+        .active h5 {
+          color: $clr-text-header;
+        }
+
+        .side-menu-account {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          color: $clr-sec-100;
+          justify-content: center;
+          gap: 0.21rem;
+
+          h5 {
+            color: $clr-text-header;
+          }
+          p {
+            font-weight: 300;
+            font-size: 0.9rem;
+          }
+        }
+        .side-menu-account-image {
+          display: flex;
+          width: 2rem;
+          align-items: center;
+        }
+        .side-menu-item {
+          display: flex;
+          height: 100%;
+          width: 100%;
+          flex-direction: row;
+          align-items: center;
+          gap: calc(#{$responsive-padding} / 1);
+          padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+          color: $clr-sec-100;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 850px) and (min-height: 750px) {
+  .side-menu-container {
+    width: #{'clamp(300px, calc(#{$responsive-padding} * 18), 500px)'};
+    height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+    display: inherit;
+  
+    .side-menu {
+      position: fixed;
+      width: inherit;
+      max-height: calc(100vh - #{$size-navbar-height} - (2 * #{$responsive-padding}));
+    }
+  }
+}

@@ -1,44 +1,45 @@
 /*  This file contains all button styles related to the site/application.  */
 
 // Primary
-input.primary-button {
-  font-size: 1.1rem;
-  margin-top: 2rem;
-  padding: #{'min(calc(8px + 0.5vw), 10px)'} #{'min(calc(10px + 1vw), 16px)'};
-  -webkit-appearance: none;
-  border-radius: 8px;
-  border: 0;
-  background-color: $clr-prim-700;
-  color: $clr-sec-100;
+button {
   cursor: pointer;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: $border-radius;
+  background-color: $clr-text-header;
+
+  transition: all ease-in-out 200ms;
 }
 
-.primary-button:hover {
-  background-color: $clr-sec-100;
-  color: $clr-sec-900;
-  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
-  -moz-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
-  box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+button:hover {
+  background-color: transparent;
+  color: $clr-sec-100;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  box-shadow: inset 0px 0px 0px 4px $clr-text-header;
 }
 
 // Secondary
-input.secondary-button {
-  font-size: 1.1rem;
-  margin-top: 2rem;
-  padding: #{'min(calc(8px + 0.5vw), 10px)'} #{'min(calc(10px + 1vw), 16px)'};
-  -webkit-appearance: none;
-  border-radius: 8px;
-  border: 0;
-  background-color: $clr-sec-100;
-  color: $clr-sec-900;
-  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
-  -moz-box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
-  box-shadow: inset 0px 0px 0px 4px $clr-prim-700;
+button.secondary {
   cursor: pointer;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: $border-radius;
+  background-color: transparent;
+  color: $clr-sec-100;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+
+  transition: all ease-in-out 200ms;
 }
 
-input.secondary-button:hover {
-  background-color: $clr-prim-700;
-  color: $clr-sec-100;
+button.secondary:hover {
+  background-color: $clr-text-header;
+  color: $clr-sec-900;
   box-shadow: none;
 }

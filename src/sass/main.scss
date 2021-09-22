@@ -18,7 +18,18 @@
 @import 'components/buttons';
 
 // Layout
+@import 'layout/layout';
+@import 'layout/sidemenu';
 @import 'layout/navigation';
 
 // Pages
-@import 'pages/home';
+@import 'pages/account';
+@import 'pages/alerts';
+@import 'pages/settings';
+@import 'pages/soldStocks';
+@import 'pages/signin';
+@import 'pages/createAccount';
+@import 'pages/statistics';
+@import 'pages/timeToSell';
+@import 'pages/watchlists';
+@import 'pages/overview';

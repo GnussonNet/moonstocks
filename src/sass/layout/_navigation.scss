@@ -4,7 +4,7 @@
   min-height: $size-navbar-height;
   max-height: $size-navbar-height;
   background-color: $clr-prim-700;
-  border-bottom: 1px solid $clr-sec-900;
+  border-bottom: 2px solid $clr-sec-900;
   transition: max-height 100ms ease-in;
 
   .container {
@@ -32,12 +32,33 @@
       align-items: center;
       justify-content: center;
 
+      @media (min-width: 850px) and (min-height: 750px) {
+        &.smallDeviceMenu {
+          display: none;
+        }
+      }
+
       &:last-child {
         padding-right: 0;
       }
+
+      &.loginPage a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: $clr-sec-100;
+
+        &.active, &:hover {
+          color: $clr-text-header;
+        }
+
+      & h5 {
+        padding: 0 10px;
+      }
+      }
     }
 
-    ul li a {
+    ul li div {
       width: calc(#{$size-navbar-height} * 0.7);
       height: calc(#{$size-navbar-height} * 0.7);
       display: flex;
@@ -45,18 +66,75 @@
       align-items: center;
       cursor: pointer;
 
-      background-color: #{'hsl(0deg 0% 100% / 10%)'};
+      background-color: #{'hsl(0deg 0% 100% / 5%)'};
       border-radius: 50%;
 
       &:hover {
-        background-color: #{'hsl(0deg 0% 100% / 20%)'};
+        background-color: #{'hsl(0deg 0% 100% / 10%)'};
       }
     }
 
-    ul li a svg {
+    ul li div svg {
       color: $clr-sec-100;
       width: calc(#{$size-navbar-height} * 0.35);
       height: calc(#{$size-navbar-height} * 0.35);
+    }
+  }
+
+  .dropdown-container {
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid $clr-sec-900;
+    top: calc(#{$size-navbar-height} - 1px);
+
+    .dropdown {
+      background-color: $clr-prim-700;
+      -webkit-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+      box-shadow: 5px 5px 27px -20px rgba(0, 0, 0, 0.5);
+
+      ul {
+        width: 100%;
+        padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        li {
+          width: 100%;
+          height: #{'clamp(60px, calc(#{$responsive-padding} * 3), 75px)'};
+          border-radius: $border-radius;
+
+          &:hover {
+            background-color: rgba($color: #000, $alpha: 0.2);
+          }
+
+          h3 {
+            margin: 0;
+          }
+
+          .active svg,
+          .active h3 {
+            color: $clr-text-header;
+          }
+          
+          .dropdown-item {
+            display: flex;
+            height: 100%;
+            flex-direction: row;
+            align-items: center;
+            gap: calc(#{$responsive-padding} / 2);
+            padding: #{'clamp(10px, calc(#{$responsive-padding}), 25px)'};
+            color: $clr-sec-100;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 850px) and (min-height: 750px) {
+    .dropdown-container {
+      display: none;
     }
   }
 }

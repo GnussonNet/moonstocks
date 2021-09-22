@@ -1,146 +1,108 @@
-import React from "react";
-import {
-  Menu,
-  Star,
-  Plus,
-  Search,
-  Home,
-  Briefcase,
-  BarChart2,
-  Clock,
-  Bell,
-  DollarSign,
-  Settings
-} from "react-feather";
-import Logo from "../../img/logo.png";
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Overview from '../pages/Overview';
+import Watchlists from '../pages/Watchlists';
+import Statistics from '../pages/Statistics';
+import TimeToSell from '../pages/TimeToSell';
+import Alerts from '../pages/Alerts';
+import SoldStocks from '../pages/SoldStocks';
+import Settings from '../pages/Settings';
+import Navbar from '../Navbar/Navbar';
+import Layout from '../pages/Layout';
+import Page404 from '../pages/Page404';
+import Account from '../pages/Account';
 
-class App extends React.Component {
-  // fake authentication Promise
-  authenticate() {
-    return new Promise((resolve) => setTimeout(resolve, 0)); // 0 seconds
-  }
+import PrivateRoute from '../route/PrivateRoute';
+import { useAuth } from '../hooks/useAuth';
+import Signin from '../pages/Signin';
+import CreateAccount from '../pages/CreateAccount';
 
-  componentDidMount() {
-    this.authenticate().then(() => {
-      const ele = document.getElementById("ldr-screen");
-      const ele1 = document.getElementById("ldr-style");
-      if (ele) {
-        // fade out
-        ele.classList.add("available");
-        setTimeout(() => {
-          // remove from DOM
-          ele.outerHTML = "";
-          ele1.outerHTML = "";
-        }, 250);
+const App = () => {
+  const { user, isSignedIn, signinWithJwtRefreshToken } = useAuth();
+
+  // Check if user is signed in at star
+  // If user is signed in, sign user in
+  useEffect(() => {
+    async function fetchUser() {
+      if (await isSignedIn()) {
+        await signinWithJwtRefreshToken();
       }
-    });
-  }
+    }
+    fetchUser();
+    // eslint-disable-next-line
+  }, []);
 
-  render() {
-    return (
-      <>
-        <nav className="navbar">
-          <div className="container">
-            <img src={Logo} alt="Logo of moonstocks" />
-            <ul>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a>
-                  <Search />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a>
-                  <Plus />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a>
-                  <Star />
-                </a>
-              </li>
-              <li>
-                {/* eslint-disable-next-line */}
-                <a>
-                  <Menu />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <main>
-          <div className="main-container">
-            <section id="home">
-              <div className="container">
-                <div className="side-menu-container">
-                  <div className="side-menu no-select">
-                    <ul>
-                      <li>
-                        <div className="side-menu-account">
-                          <h3>Filip Magnusson</h3>
-                          <p>Premium user</p>
-                        </div>
-                        <div className="side-menu-account-image">
-                          <img src={Logo} />
-                        </div>
-                      </li>
-                      <hr className="side-menu-divider" />
-                      <li>
-                        <div className="side-menu-item">
-                          <Home />
-                          <h3>Overview</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Briefcase />
-                          <h3>Watchlists</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <BarChart2 />
-                          <h3>Statistics</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Clock />
-                          <h3>Time to sell</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <Bell />
-                          <h3>Alerts</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="side-menu-item">
-                          <DollarSign />
-                          <h3>Sold stocks</h3>
-                        </div>
-                      </li>
-                      <hr className="side-menu-divider" />
-                      <li>
-                        <div className="side-menu-item">
-                          <Settings />
-                          <h3>Settings</h3>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="main-content"></div>
-              </div>
-            </section>
-          </div>
-        </main>
-      </>
-    );
-  }
-}
+  // Remove loading screen on every page render
+  useEffect(() => {
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('ldr-screen');
+      if (loadingScreen && loadingScreen.style !== 'none') {
+        loadingScreen.style.display = 'none';
+      }
+    }, 250);
+  });
+
+  return (
+    <Router>
+      {/* Displayed when user is not signed in */}
+      {user ? (
+        <>
+          <Navbar />
+          <Layout>
+            <Switch>
+              <PrivateRoute path="/signin">
+                <Redirect to="/overview" />
+              </PrivateRoute>
+              <PrivateRoute exact path="/">
+                <Redirect to="/overview" />
+              </PrivateRoute>
+              <PrivateRoute path="/overview">
+                <Overview />
+              </PrivateRoute>
+              <PrivateRoute path="/watchlists">
+                <Watchlists />
+              </PrivateRoute>
+              <PrivateRoute path="/statistics">
+                <Statistics />
+              </PrivateRoute>
+              <PrivateRoute path="/time_to_sell">
+                <TimeToSell />
+              </PrivateRoute>
+              <PrivateRoute path="/alerts">
+                <Alerts />
+              </PrivateRoute>
+              <PrivateRoute path="/sold_stocks">
+                <SoldStocks />
+              </PrivateRoute>
+              <PrivateRoute path="/account">
+                <Account />
+              </PrivateRoute>
+              <PrivateRoute path="/settings">
+                <Settings />
+              </PrivateRoute>
+              <PrivateRoute path="*">
+                <Page404 />
+              </PrivateRoute>
+            </Switch>
+          </Layout>
+        </>
+      ) : (
+        <Switch>
+          <Route exact path="/signin">
+            <Navbar />
+            <Signin />
+          </Route>
+          <Route exact path="/create_account">
+            <Navbar />
+            <CreateAccount />
+          </Route>
+          <Route path="*">
+            <Redirect to="/signin" />
+          </Route>
+        </Switch>
+      )}
+    </Router>
+  );
+};
 
 export default App;
