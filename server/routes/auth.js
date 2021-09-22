@@ -7,7 +7,7 @@ const { registerValidation, signinValidation } = require('../validation');
 const jwtExpiry = '2m';
 const jwtRefreshExpiry = '120d';
 
-router.post('/register', async (req, res) => {
+router.post('/create_account', async (req, res) => {
   // Validation
   const { error, value } = registerValidation(req.body);
   const validatedEmail = value.email;
@@ -60,10 +60,12 @@ router.post('/signin', async (req, res) => {
   res.status(202).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, name: usersName, message: 'Signed in!' });
 });
 
+
 router.post('/refresh_token', async (req, res) => {
   const refreshToken = req.cookies['refreshToken'];
   if (!refreshToken) return res.status(401).send('Access Denied');
 
+  // Very the token, check if user with id exists. Then create new access- and refresh token
   try {
     const verified = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
     const user = await User.findOne({ _id: verified._id });
@@ -83,7 +85,7 @@ router.post('/is_signed_in', async (req, res) => {
   if (refreshToken) {
     res.status(202).json({ isSignedIn: true });
   } else {
-    res.status(202).json({ isSignedIn: false });
+    res.status(202).cookie('refreshToken', '', { maxAge: 0 }).json({ message: 'Something went wrong!', isSignedIn: false });
   }
 });
 

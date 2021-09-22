@@ -14,30 +14,30 @@ h2 {
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 h5 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
 p {
-  font-size: 1.1rem;
-  line-height: 1.3rem;
+  font-size: 0.8rem;
+  line-height: 1rem;
 }
 
 input {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
 }
 
 label {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
 }

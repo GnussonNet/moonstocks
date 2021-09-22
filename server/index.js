@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: ['https://stocks.gnusson.net'],
     methods: ['GET', 'POST'],
     credentials: true,
   })

@@ -1,35 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  firstName: {
-    type: String,
-    require: true,
-    min: 1,
-    max: 40,
-  },
-  lastName: {
-    type: String,
-    require: true,
-    min: 1,
-    max: 40,
-  },
-  email: {
-    type: String,
-    require: true,
-    min: 5,
-    max: 255,
-  },
-  password: {
-    type: String,
-    require: true,
-    min: 8,
-    max: 50,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
+const stockSchema = new Schema({
   stock: [
     {
       ticker: {
@@ -46,10 +18,12 @@ const userSchema = new Schema({
           per_share_cost: 
           {
             type: Number,
+            require: true,
           },
           quantity: 
           {
             type: Number,
+            require: true,
           },
           date: 
           {
@@ -62,4 +36,4 @@ const userSchema = new Schema({
   ],
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Stock', stockSchema);

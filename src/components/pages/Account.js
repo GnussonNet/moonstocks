@@ -9,7 +9,7 @@ const Account = () => {
   Axios.defaults.withCredentials = true;
   const checkAccessToken = async () => {
     if (user) {
-      Axios.get('http://localhost:5001/api/stocks', {
+      Axios.get('https://stocks.gnusson.net/api/stocks', {
         headers: {
           Authorization: `Bearer ${user.jwt_token}`,
         },

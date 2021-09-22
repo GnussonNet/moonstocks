@@ -10,4 +10,12 @@ router.get('/', verify, (req, res) => {
   });
 });
 
+router.get('/test', (req, res) => {
+  res.send('Test Works!');
+});
+
+router.get('/create', verify, (req, res) => {
+  res.send('test');
+});
+
 module.exports = router;

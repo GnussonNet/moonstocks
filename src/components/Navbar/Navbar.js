@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="container">
         <img src={Logo} alt="Gnusson logo" />
         <ul>
-          {!user && (
+          {!user ? (
             <>
               <li className="loginPage">
                 <NavLink to="/signin" className="side-menu-item">
@@ -28,8 +28,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </>
-          )}
-          {user && (
+          ) : (
             <>
               <li>
                 <div>

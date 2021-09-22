@@ -43,27 +43,9 @@ const App = () => {
   });
 
   return (
-    <Router basename="moonstocks">
-
+    <Router>
       {/* Displayed when user is not signed in */}
-      {!user && (
-        <Switch>
-          <Route exact path="/signin">
-            <Navbar />
-            <Signin />
-          </Route>
-          <Route exact path="/create_account">
-            <Navbar />
-            <CreateAccount />
-          </Route>
-          <Route path="*">
-            <Redirect to="/signin" />
-          </Route>
-        </Switch>
-      )}
-
-      {/* Displayed when a user is signed in */}
-      {user && (
+      {user ? (
         <>
           <Navbar />
           <Layout>
@@ -104,6 +86,20 @@ const App = () => {
             </Switch>
           </Layout>
         </>
+      ) : (
+        <Switch>
+          <Route exact path="/signin">
+            <Navbar />
+            <Signin />
+          </Route>
+          <Route exact path="/create_account">
+            <Navbar />
+            <CreateAccount />
+          </Route>
+          <Route path="*">
+            <Redirect to="/signin" />
+          </Route>
+        </Switch>
       )}
     </Router>
   );
