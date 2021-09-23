@@ -5,9 +5,11 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+dotenv.config();
+
 app.use(
   cors({
-    origin: ['https://stocks.gnusson.net'],
+    origin: [process.env.NODEJS_URL || "https://stocks.gnusson.net"],
     methods: ['GET', 'POST'],
     credentials: true,
   })
@@ -19,12 +21,11 @@ app.use(cookieParser());
 const authRoute = require('./routes/auth');
 const stockRoute = require('./routes/stocks');
 
-dotenv.config();
-
 // MongoDB Init
 const url = process.env.DB_CONNECTION;
+// const url = process.env.DB_CONNECTION;
 mongoose
-  .connect(process.env.DB_CONNECTION, {
+  .connect(url, {
     useNewUrlParser: true,
   })
   .then(() => {
@@ -38,4 +39,4 @@ app.use(express.json());
 app.use('/api/user', authRoute);
 app.use('/api/stocks', stockRoute);
 
-app.listen(process.env.PORT, () => console.log(`Up and running on port: ${process.env.PORT}`));
+app.listen(process.env.PORT || "3000", () => console.log(`Up and running on port: ${process.env.PORT || "3000"}`));

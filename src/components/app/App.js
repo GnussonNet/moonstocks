@@ -39,7 +39,7 @@ const App = () => {
       if (loadingScreen && loadingScreen.style !== 'none') {
         loadingScreen.style.display = 'none';
       }
-    }, 250);
+    }, 2000);
   });
 
   return (
