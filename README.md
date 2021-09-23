@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/GnussonNet/moonstocks">
-    <img src="https://github.com/GnussonNet/moonstocks/blob/sass/.github/logo.png" alt="Logo" width="80" height="auto">
+    <img src="https://github.com/GnussonNet/moonstocks/blob/main/.github/logo.png" alt="Logo" width="80" height="auto">
   </a>
 
   <h3 align="center">Moonstocks</h3>
@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Moonstocks Dashboard](https://github.com/GnussonNet/moonstocks/blob/sass/.github/dashboard.png)
+![Moonstocks Dashboard](https://github.com/GnussonNet/moonstocks/blob/main/.github/dashboard.png)
 
 
 ### Built With
