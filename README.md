@@ -62,8 +62,13 @@
 ### Built With
 
 * [React](https://reactjs.org/)
+* [Next.Js](https://nextjs.org/)
 * [SCSS](https://github.com/sass)
 * [Feather Icons](https://feathericons.com/)
+* [Node.Js](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Docker](https://www.docker.com/)
 
 
 
