@@ -1,0 +1,36 @@
+version: "3"
+services:
+  moonstocks-client:
+    image: moonstocks-client-production
+    restart: unless-stopped
+    ports: 
+      - "3000:3000"
+    networks:
+      - moonstocks
+  moonstocks-server:
+    image: moonstocks-server
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - ENV=${ENV}
+    ports:
+      - "5000:5000"
+    networks:
+      - moonstocks
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5.0.3
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    networks:
+      - moonstocks
+    volumes:
+      - mongo-data:/data/db
+networks:
+  moonstocks:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
