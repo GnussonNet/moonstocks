@@ -1,0 +1,9 @@
+// Abstracts
+@import 'globals/abstracts/variables';
+@import 'globals/abstracts/mixins';
+@import 'globals/abstracts/functions';
+
+// Base
+@import 'globals/base/reset';
+@import 'globals/base/typography';
+@import 'globals/base/base';
