@@ -1,0 +1,9 @@
+/*  This file contains all *functions* related to the site/application.  */
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
