@@ -30,7 +30,9 @@ function Layout({ children }) {
         <div className={styles.side_menu_container}>
           <SideMenu></SideMenu>
         </div>
-        <div className={styles.content_container}>{children}</div>
+        <div className={styles.content_container}>
+          <div className={styles.content}>{children}</div>
+        </div>
       </main>
     </div>
   );

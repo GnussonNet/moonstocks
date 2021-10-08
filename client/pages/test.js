@@ -1,6 +1,8 @@
+import styles from '@styles/modules/pages/Test.module.scss'
+
 export default function Test() {
   return (
-    <div>
+    <section className={styles.page}>
       <h1>Test</h1>
       <h1>Test</h1>
       <h1>Test</h1>
@@ -20,6 +22,8 @@ export default function Test() {
       <h1>Test</h1>
       <h1>Test</h1>
       <h1>Test</h1>
-    </div>
-  );
+      <h1>Test</h1>
+      <h1>Test</h1>
+    </section>
+  )
 }
