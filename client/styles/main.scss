@@ -1,10 +1,5 @@
-// Abstracts
-@import 'globals/abstracts/variables';
-@import 'globals/abstracts/fonts';
-@import 'globals/abstracts/mixins';
-@import 'globals/abstracts/functions';
+@import './global/abstracts/fonts';
 
-// Base
-@import 'globals/base/reset';
-@import 'globals/base/typography';
-@import 'globals/base/base';
+@import './global/base/reset';
+@import './global/base/typography';
+@import './global/base/base';

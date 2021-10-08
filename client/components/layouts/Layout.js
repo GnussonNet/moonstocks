@@ -1,11 +1,37 @@
-import React from 'react';
-import styles from '@styles/components/Layout.module.scss';
+import Link from 'next/link';
+import { Search, Plus, Star } from 'react-feather';
+
+import Navbar from '@components/layouts/Navbar';
+import SideMenu from '@components/layouts/SideMenu';
+
+import styles from '@styles/modules/layouts/Layout.module.scss';
 
 function Layout({ children }) {
   return (
     <div className={styles.container}>
-      <h1>Layout</h1>
-      <main className={styles.main}>{children}</main>
+      <Navbar>
+        <li>
+          <Link href="/">
+            <Search />
+          </Link>
+        </li>
+        <li>
+          <Link href="/test">
+            <Plus />
+          </Link>
+        </li>
+        <li>
+          <Link href="/test">
+            <Star />
+          </Link>
+        </li>
+      </Navbar>
+      <main className={styles.main}>
+        <div className={styles.side_menu_container}>
+          <SideMenu></SideMenu>
+        </div>
+        <div className={styles.content_container}>{children}</div>
+      </main>
     </div>
   );
 }

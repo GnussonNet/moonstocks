@@ -1,0 +1,42 @@
+.container {
+  
+  .main {
+    padding: $responsive-padding;
+    display: flex;
+    gap: $responsive-padding;
+
+    .side_menu_container {
+      display: none;
+      height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
+      width: 300px;
+
+      flex-shrink: 0;
+      
+      border-radius: $border-radius;
+      background-color: $clr-prim-700;
+      padding: $responsive-padding-s 0;
+    }
+
+    .content_container {
+      width: 100%;
+      height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
+      
+      border-radius: $border-radius;
+      background-color: $clr-prim-700;
+      padding: $responsive-padding-s;
+      min-height: 0;
+
+      overflow: scroll;
+
+      div {
+        height: 100%;
+      }
+    }
+
+    @media (min-width: 850px) and (min-height: 750px) {
+      .side_menu_container {
+        display: inherit;
+      }
+    }
+  }
+}
