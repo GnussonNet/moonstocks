@@ -9,6 +9,9 @@ import styles from '@styles/modules/layouts/Layout.module.scss';
 import navbarStyles from '@styles/modules/layouts/Navbar.module.scss';
 
 function Layout({ children }) {
+
+  const baseUrl = '\\app';
+
   return (
     <>
       {/* Head */}
@@ -23,17 +26,17 @@ function Layout({ children }) {
       <div className={styles.container}>
         <Navbar>
           <li className={navbarStyles.icon}>
-            <Link href="/">
+            <Link href={`${baseUrl}/`}>
               <Search />
             </Link>
           </li>
           <li className={navbarStyles.icon}>
-            <Link href="/">
+            <Link href={`${baseUrl}/`}>
               <Plus />
             </Link>
           </li>
           <li className={navbarStyles.icon}>
-            <Link href="app/test1">
+            <Link href={`${baseUrl}/test1`}>
               <Star />
             </Link>
           </li>
