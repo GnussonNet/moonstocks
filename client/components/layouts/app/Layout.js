@@ -9,8 +9,7 @@ import styles from '@styles/modules/layouts/Layout.module.scss';
 import navbarStyles from '@styles/modules/layouts/Navbar.module.scss';
 
 function Layout({ children }) {
-
-  const baseUrl = '\\app';
+  const baseUrl = '/app';
 
   return (
     <>
@@ -31,12 +30,12 @@ function Layout({ children }) {
             </Link>
           </li>
           <li className={navbarStyles.icon}>
-            <Link href={`${baseUrl}/`}>
+            <Link href={`${baseUrl}/test1`}>
               <Plus />
             </Link>
           </li>
           <li className={navbarStyles.icon}>
-            <Link href={`${baseUrl}/test1`}>
+            <Link href={`${baseUrl}/test2`}>
               <Star />
             </Link>
           </li>
@@ -53,5 +52,7 @@ function Layout({ children }) {
     </>
   );
 }
+
+export const getLayout = page => <Layout>{page}</Layout>
 
 export default Layout;

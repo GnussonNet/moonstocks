@@ -20,17 +20,22 @@ function Layout({ children }) {
       {/* Content */}
       <div className={styles.container}>
         <Navbar>
-        <li className={navbarStyles.text}>
-          <Link href="/sign_in">Sign In</Link>
-        </li>
-        <li className={navbarStyles.text}>
-          <Link href="/create_account">Crete free Account</Link>
-        </li>
+          <li className={navbarStyles.text}>
+            <Link href="/app">App</Link>
+          </li>
+          <li className={navbarStyles.text}>
+            <Link href="/sign_in">Sign In</Link>
+          </li>
+          <li className={navbarStyles.text}>
+            <Link href="/create_account">Crete free Account</Link>
+          </li>
         </Navbar>
         <main className={styles.main}>{children}</main>
       </div>
     </>
   );
 }
+
+export const getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Layout;

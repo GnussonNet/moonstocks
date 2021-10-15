@@ -1,5 +1,3 @@
-import HomeLayout from '@components/layouts/HomeLayout'
-
 import styles from '@styles/modules/pages/Home.module.scss';
 
 export default function Home() {
@@ -11,12 +9,3 @@ export default function Home() {
     </>
   );
 }
-
-Home.getLayout = function getLayout(page) {
-  return (
-    <>
-      <HomeLayout></HomeLayout>
-      {page}
-    </>
-  );
-};

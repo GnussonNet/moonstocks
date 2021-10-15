@@ -1,22 +1,17 @@
-import HomeLayout from '@components/layouts/HomeLayout'
+import publicRoute from '@components/auth/PublicRoute';
+
+import { getLayout } from '@components/layouts/public/Layout';
 
 import styles from '@styles/modules/pages/Home.module.scss';
 
-export default function Create_Account() {
+var Create_Account = () => {
   return (
-    <>
-      <section className={styles.page}>
-        <h1>Create Account</h1>
-      </section>
-    </>
-  );
-}
-
-Create_Account.getLayout = function getLayout(page) {
-  return (
-    <>
-      <HomeLayout></HomeLayout>
-      {page}
-    </>
+    <section className={styles.page}>
+      <h1>Create Account</h1>
+    </section>
   );
 };
+
+Create_Account = publicRoute(Create_Account);
+Create_Account.getLayout = getLayout;
+export default Create_Account;
