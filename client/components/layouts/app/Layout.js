@@ -26,17 +26,23 @@ function Layout({ children }) {
         <Navbar>
           <li className={navbarStyles.icon}>
             <Link href={`${baseUrl}/`}>
-              <Search />
+              <a>
+                <Search />
+              </a>
             </Link>
           </li>
           <li className={navbarStyles.icon}>
             <Link href={`${baseUrl}/test1`}>
-              <Plus />
+              <a>
+                <Plus />
+              </a>
             </Link>
           </li>
           <li className={navbarStyles.icon}>
             <Link href={`${baseUrl}/test2`}>
-              <Star />
+              <a>
+                <Star />
+              </a>
             </Link>
           </li>
         </Navbar>
@@ -53,6 +59,6 @@ function Layout({ children }) {
   );
 }
 
-export const getLayout = page => <Layout>{page}</Layout>
+export const getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Layout;

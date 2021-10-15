@@ -1,7 +1,31 @@
 .side_menu {
   width: 100%;
-  
-  padding: 0 $responsive-padding-s;
 
-  overflow-x: scroll;
+  overflow: hidden;
+
+  .menu_items {
+    .menu_item {
+
+      border-radius: $border-radius;
+
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.4);
+      }
+      a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: $responsive-padding;
+
+        color: $clr-sec-100;
+        text-decoration: none;
+
+        padding: $responsive-padding;
+
+        &.active {
+          color: $clr-header ;
+        }
+      }
+    }
+  }
 }

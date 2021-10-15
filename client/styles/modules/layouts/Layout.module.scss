@@ -3,18 +3,19 @@
   .main {
     padding: $responsive-padding;
     display: flex;
+    align-items: flex-start;
     gap: $responsive-padding;
 
     .side_menu_container {
       display: none;
-      height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
+      max-height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
       width: 300px;
 
       flex-shrink: 0;
       
       border-radius: $border-radius;
       background-color: $clr-prim-700;
-      padding: $responsive-padding-s 0;
+      padding: $responsive-padding;
     }
 
     .content_container {

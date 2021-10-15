@@ -1,20 +1,17 @@
 import authenticatedRoute from '@components/auth/AuthenticatedRoute';
-
 import { getLayout } from '@components/layouts/app/Layout';
-
 import styles from '@styles/modules/pages/Test.module.scss';
 
-var App = () => {
+var Statistics = () => {
   return (
     <section className={styles.page}>
-      <h1>Overview</h1>
+      <h1>Statistics</h1>
     </section>
   );
 };
 
-App = authenticatedRoute(App);
+Statistics = authenticatedRoute(Statistics);
 
-App.getLayout = getLayout;
+Statistics.getLayout = getLayout;
 
-// export default authenticatedRoute(Test1);
-export default App;
+export default Statistics;
