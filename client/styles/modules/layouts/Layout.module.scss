@@ -9,13 +9,13 @@
     .side_menu_container {
       display: none;
       max-height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
-      width: 300px;
+      width: clamp(300px, 22vw, 600px);
 
       flex-shrink: 0;
       
       border-radius: $border-radius;
       background-color: $clr-prim-700;
-      padding: $responsive-padding;
+      padding: $responsive-padding-m;
     }
 
     .content_container {
@@ -24,12 +24,12 @@
       
       border-radius: $border-radius;
       background-color: $clr-prim-700;
-      padding: $responsive-padding-s 0;
+      padding: $responsive-padding-l 0;
 
       overflow: hidden;
 
       .content {
-        padding: 0 $responsive-padding-s;
+        padding: 0 $responsive-padding-l;
         height: 100%;
         overflow: scroll;
       }
