@@ -1,5 +1,5 @@
 const express = require('express');
-const { get_portfolios, add_portfolio, update_portfolio, delete_portfolio, add_stock, update_stock, delete_stock, update_lot, delete_lot, add_portfolios } = require('../controllers/userController');
+const { get_portfolios, add_portfolio, update_portfolio, delete_portfolio, add_stock, update_stock, delete_stock, update_lot, delete_lot } = require('../controllers/userController');
 const router = express.Router();
 
 // Portfolio routes

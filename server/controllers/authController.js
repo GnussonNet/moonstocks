@@ -22,6 +22,7 @@ const jwtRefreshExpiry = '40d';
 // Auth   Public
 exports.isSignedIn = AsyncManager(async (req, res, next) => {
   try {
+    console.log(req.cookies['refreshToken']);
     const { error } = await authenticationWithRefreshToken(req.cookies['refreshToken']);
     if (error) throw { message: error.message, statusCode: error.statusCode };
 

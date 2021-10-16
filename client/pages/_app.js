@@ -1,12 +1,12 @@
 import Router from 'next/router';
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
-
 import '@styles/main.scss';
+
+// Auth Context
+import { AuthContextProvider } from '@stores/AuthContext';
 
 // NProgress
 import NProgress from 'nprogress';
-import '@styles/modules/components/NProgress.scss'
+import '@styles/modules/components/NProgress.scss';
 
 // NProgress config
 NProgress.configure({ showSpinner: false });
@@ -24,5 +24,9 @@ export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(<Component {...pageProps} />);
+  return getLayout(
+    <AuthContextProvider>
+      <Component {...pageProps} />
+    </AuthContextProvider>
+  );
 }

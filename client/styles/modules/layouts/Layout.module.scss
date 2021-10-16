@@ -9,7 +9,7 @@
     .side_menu_container {
       display: none;
       max-height: calc(100vh - (#{$responsive-padding} * 2) - #{$size-navbar-height} - 2px);
-      width: clamp(300px, 22vw, 600px);
+      width: clamp(300px, 22vw, 400px);
 
       flex-shrink: 0;
       

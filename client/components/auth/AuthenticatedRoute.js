@@ -25,7 +25,7 @@ const authenticatedRoute = (Component = null, options = {}) => {
         return <div />;
       }
 
-      return <Component {...this.props} />
+      return <Component {...this.props} />;
     }
   }
 
