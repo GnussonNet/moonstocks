@@ -22,7 +22,6 @@ const jwtRefreshExpiry = '40d';
 // Auth   Public
 exports.isSignedIn = AsyncManager(async (req, res, next) => {
   try {
-    console.log(req.cookies['refreshToken']);
     const { error } = await authenticationWithRefreshToken(req.cookies['refreshToken']);
     if (error) throw { message: error.message, statusCode: error.statusCode };
 
@@ -66,6 +65,26 @@ exports.create_account = AsyncManager(async (req, res, next) => {
       // saved!
     });
     return res.status(200).json({ success: true });
+  } catch (error) {
+    return next(new ErrorLibrary(error.message, error.statusCode));
+  }
+});
+
+// Title  Sign in
+// Path   Post /api/v1/user/sign_in_with_token
+// Auth   Public
+exports.sign_in_with_token = AsyncManager(async (req, res, next) => {
+  try {
+    // Authenticate with refresh token
+    const { user, error } = await authenticationWithRefreshToken(req.cookies['refreshToken']);
+    if (error) throw { message: error.message, statusCode: error.statusCode };
+
+    // Create token
+    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: jwtExpiry });
+    const refreshToken = jwt.sign({ _id: user._id, tokenVersion: user.tokenVersion }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: jwtRefreshExpiry });
+    const usersName = `${user.firstName} ${user.lastName}`;
+
+    res.status(200).cookie('refreshToken', refreshToken, { sameSite: 'strict', path: '/', httpOnly: true, secure: true }).json({ jwt_token: accessToken, name: usersName });
   } catch (error) {
     return next(new ErrorLibrary(error.message, error.statusCode));
   }

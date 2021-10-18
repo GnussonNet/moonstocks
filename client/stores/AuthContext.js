@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import api from '@services/Api/index';
+
 const AuthContext = createContext({
   session: null,
   isSignedIn: false,
@@ -19,15 +21,53 @@ export const AuthContextProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(async () => {
-    const session = { token: '12345', email: 'admin@gnusson.net' };
-    
-    setSession(session);
-    setIsSignedIn(true);
-    setAuthReady(true);
-  }, [pathname]);
+    fetch('http://localhost:8080/api/v1/auth/is_signed_in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.isSignedIn) {
+          fetch('http://localhost:8080/api/v1/auth/sign_in_with_token', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              setSession(data);
+              setIsSignedIn(true);
+              setAuthReady(true);
+            });
+        } else {
+          setAuthReady(true);
+        }
+      });
+  }, []);
+
+  // useEffect(async () => {
+  //   setAuthReady(true);
+  // }, [pathname, session]);
 
   const signIn = () => {
-    // console.log('isSignedIn');
+    fetch('http://localhost:8080/api/v1/auth/sign_in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: 'Admin@gnusson.net',
+        password: 'U6HKNXoDH@WyW!7wuZjnbiAw',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSession(data);
+        console.log(data);
+      });
   };
 
   const createAccount = () => {
