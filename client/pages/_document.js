@@ -10,6 +10,7 @@ class MyDocument extends Document {
           <link rel="preload" href="/fonts/Montserrat-Regular.ttf" as="font" crossOrigin="" />
           <link rel="preload" href="/fonts/Montserrat-Medium.ttf" as="font" crossOrigin="" />
           <link rel="preload" href="/fonts/Montserrat-Bold.ttf" as="font" crossOrigin="" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />

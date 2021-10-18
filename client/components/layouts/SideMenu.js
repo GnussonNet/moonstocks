@@ -16,7 +16,7 @@ function SideMenu() {
           <Link href={`${baseUrl}/profile`}>
             <a>
               <div className="user">
-                <h5>Filip Magnusson</h5>
+                <h5>Guest</h5>
                 <p>Premium</p>
               </div>
               <User />
