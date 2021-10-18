@@ -1,5 +1,3 @@
-import authenticatedRoute from '@components/auth/AuthenticatedRoute';
-
 import { getLayout } from '@components/layouts/app/Layout';
 
 import styles from '@styles/modules/pages/Test.module.scss';
@@ -12,9 +10,6 @@ var App = () => {
   );
 };
 
-App = authenticatedRoute(App);
-
 App.getLayout = getLayout;
 
-// export default authenticatedRoute(Test1);
 export default App;

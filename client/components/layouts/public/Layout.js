@@ -5,37 +5,57 @@ import Navbar from '@components/layouts/Navbar';
 
 import styles from '@styles/modules/layouts/HomeLayout.module.scss';
 import navbarStyles from '@styles/modules/layouts/Navbar.module.scss';
+import { AuthContextProvider, useAuthContext } from '@stores/AuthContext';
+import { useEffect, useState } from 'react';
+import Router from 'next/router';
 
 function Layout({ children }) {
-  return (
-    <>
-      {/* Head */}
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  const { authReady, isSignedIn } = useAuthContext();
 
-        <title>Moonstocks</title>
-        <meta name="description" content="Moonstocks is a free stocks watchlist tool, build for peoples who buys and sells Magic Formula stocks." />
-      </Head>
+  const [loading, setLoading] = useState(true);
 
-      {/* Content */}
-      <div className={styles.container}>
-        <Navbar>
-          <li className={navbarStyles.text}>
-            <Link href="/app">App</Link>
-          </li>
-          <li className={navbarStyles.text}>
-            <Link href="/sign_in">Sign In</Link>
-          </li>
-          <li className={navbarStyles.text}>
-            <Link href="/create_account">Crete free Account</Link>
-          </li>
-        </Navbar>
-        <main className={styles.main}>{children}</main>
-      </div>
-    </>
-  );
+  useEffect(() => {
+    if (authReady && isSignedIn) {
+      Router.push('/app');
+    } else if (authReady && !isSignedIn) {
+      setLoading(false);
+    }
+  }, [isSignedIn, authReady]);
+
+  if (!authReady || loading) {
+    return <div />;
+  } else {
+    return (
+      <>
+        {/* Head */}
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+          <title>Moonstocks</title>
+          <meta name="description" content="Moonstocks is a free stocks watchlist tool, build for peoples who buys and sells Magic Formula stocks." />
+        </Head>
+
+        {/* Content */}
+        <div className={styles.container}>
+          <Navbar>
+            <li className={navbarStyles.text}>
+              <Link href="/sign_in">Sign In</Link>
+            </li>
+            <li className={navbarStyles.text}>
+              <Link href="/create_account">Crete free Account</Link>
+            </li>
+          </Navbar>
+          <main className={styles.main}>{children}</main>
+        </div>
+      </>
+    );
+  }
 }
 
-export const getLayout = (page) => <Layout>{page}</Layout>;
+export const getLayout = (page) => (
+  <AuthContextProvider>
+    <Layout>{page}</Layout>
+  </AuthContextProvider>
+);
 
 export default Layout;

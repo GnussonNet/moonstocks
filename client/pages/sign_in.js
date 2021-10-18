@@ -7,20 +7,15 @@ import styles from '@styles/modules/pages/Home.module.scss';
 import { useContext } from 'react';
 
 var Sign_In = () => {
-  const { authReady, session } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   return (
     <section className={styles.page}>
-      {authReady && (
-        <>
-          <h1>Sign In</h1>
-          <p>{session && session.email}</p>
-        </>
-      )}
+      <h1>Sign In</h1>
+      <button onClick={signIn}>Sign In</button>
     </section>
   );
 };
 
-Sign_In = publicRoute(Sign_In);
 Sign_In.getLayout = getLayout;
 export default Sign_In;

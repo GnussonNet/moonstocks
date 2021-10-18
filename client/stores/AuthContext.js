@@ -1,7 +1,5 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-
-import api from '@services/Api/index';
 
 const AuthContext = createContext({
   session: null,
@@ -66,7 +64,8 @@ export const AuthContextProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         setSession(data);
-        console.log(data);
+        setIsSignedIn(true);
+        setAuthReady(true);
       });
   };
 
@@ -75,7 +74,17 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const signOut = () => {
-    // console.log('isSignedIn');
+    fetch('http://localhost:8080/api/v1/auth/sign_out', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSession(null);
+        setIsSignedIn(false);
+      });
   };
 
   const context = { session, isSignedIn, signIn, createAccount, signOut, authReady };
@@ -84,3 +93,7 @@ export const AuthContextProvider = ({ children }) => {
 };
 
 export default AuthContext;
+
+export function useAuthContext() {
+  return useContext(AuthContext);
+}

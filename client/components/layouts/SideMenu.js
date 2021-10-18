@@ -4,8 +4,10 @@ import { useRouter } from 'next/router';
 import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings, User } from 'react-feather';
 
 import styles from '@styles/modules/layouts/SideMenu.module.scss';
+import { useAuthContext } from '@stores/AuthContext';
 
 function SideMenu() {
+  const { session } = useAuthContext();
   const router = useRouter();
   const baseUrl = '/app';
 
@@ -16,7 +18,7 @@ function SideMenu() {
           <Link href={`${baseUrl}/profile`}>
             <a>
               <div className="user">
-                <h5>Guest</h5>
+                <h5>{session && session.name}</h5>
                 <p>Premium</p>
               </div>
               <User />

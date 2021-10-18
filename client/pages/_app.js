@@ -25,8 +25,8 @@ export default function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
-    <AuthContextProvider>
+    // <AuthContextProvider>
       <Component {...pageProps} />
-    </AuthContextProvider>
+    // </AuthContextProvider>
   );
 }
