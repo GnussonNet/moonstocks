@@ -1,4 +1,3 @@
-import authenticatedRoute from '@components/auth/AuthenticatedRoute';
 import { getLayout } from '@components/layouts/app/Layout';
 import styles from '@styles/modules/pages/Test.module.scss';
 
@@ -9,8 +8,6 @@ var Sold_Stocks = () => {
     </section>
   );
 };
-
-Sold_Stocks = authenticatedRoute(Sold_Stocks);
 
 Sold_Stocks.getLayout = getLayout;
 

@@ -1,5 +1,3 @@
-import authenticatedRoute from '@components/auth/AuthenticatedRoute';
-
 import { getLayout } from '@components/layouts/app/Layout';
 
 import styles from '@styles/modules/pages/Test.module.scss';
@@ -32,9 +30,7 @@ var Test2 = () => {
   );
 };
 
-Test2 = authenticatedRoute(Test2);
 
 Test2.getLayout = getLayout;
 
-// export default authenticatedRoute(Test1);
 export default Test2;
