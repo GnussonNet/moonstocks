@@ -1,0 +1,43 @@
+// Primary
+button.btn-primary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: $border-radius;
+  background-color: $clr-text-header;
+
+  transition: all ease-in-out 200ms;
+}
+
+button.btn-primary:hover {
+  background-color: transparent;
+  color: $clr-sec-100;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+}
+
+// Secondary
+button.btn-secondary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: $border-radius;
+  background-color: transparent;
+  color: $clr-sec-100;
+  -webkit-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  -moz-box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+  box-shadow: inset 0px 0px 0px 4px $clr-text-header;
+
+  transition: all ease-in-out 200ms;
+}
+
+button.btn-secondary:hover {
+  background-color: $clr-text-header;
+  color: $clr-sec-900;
+  box-shadow: none;
+}

@@ -1,0 +1,39 @@
+section.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: calc(100vh - #{$responsive-padding});
+  width: clamp(50px, 80%, 600px);
+  margin: 0 auto;
+
+  color: $clr-sec-100;
+
+  .input_fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    input {
+      padding: 10px;
+      border-radius: $border-radius;
+      background-color: $clr-prim-700;
+      color: $clr-sec-100;
+      border: none;
+    }
+  }
+
+  .rememberMe {
+    width: 100%;
+    input[type='checkbox'] {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      position: relative;
+      bottom: 1px;
+      margin-right: 10px;
+    }
+  }
+}

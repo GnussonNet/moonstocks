@@ -1,12 +1,17 @@
-html, body {
+html,
+body {
   background-color: $clr-prim-400;
   color: $clr-sec-100;
   font-family: 'Montserrat';
-  
+
   width: 100%;
   height: 100vh;
-  
+
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  
+
   overflow: hidden;
+
+  input {
+    accent-color: $clr-text-header;
+  }
 }

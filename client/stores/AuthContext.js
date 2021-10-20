@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState, useContext } from 'react';
-import { useRouter } from 'next/router';
 
 const AuthContext = createContext({
   session: null,
@@ -8,18 +7,23 @@ const AuthContext = createContext({
   createAccount: () => {},
   signOut: () => {},
   authReady: false,
+  user: null,
+  clearUser: () => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const { pathname } = useRouter();
-
   // States
   const [session, setSession] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const clearUser = () => {
+    setUser(null);
+  };
 
   useEffect(async () => {
-    fetch('http://localhost:8080/api/v1/auth/is_signed_in', {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/is_signed_in`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,49 +32,58 @@ export const AuthContextProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.isSignedIn) {
-          fetch('http://localhost:8080/api/v1/auth/sign_in_with_token', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              setSession(data);
-              setIsSignedIn(true);
-              setAuthReady(true);
-            });
+          signinWithJwtRefreshToken();
         } else {
           setAuthReady(true);
         }
       });
   }, []);
 
-  // useEffect(async () => {
-  //   setAuthReady(true);
-  // }, [pathname, session]);
-
-  const signIn = () => {
-    fetch('http://localhost:8080/api/v1/auth/sign_in', {
+  const signinWithJwtRefreshToken = () => {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/sign_in_with_token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: 'Admin@gnusson.net',
-        password: 'U6HKNXoDH@WyW!7wuZjnbiAw',
-      }),
     })
       .then((response) => response.json())
       .then((data) => {
         setSession(data);
         setIsSignedIn(true);
         setAuthReady(true);
+        clearUser();
       });
   };
 
+  const signIn = () => {
+    if (user && user.email && user.password) {
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/sign_in`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user.email[0],
+          password: user.password[0],
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && typeof data.success !== 'undefined' && data.success === false) {
+            console.log(data.message);
+            setIsSignedIn(false);
+            setAuthReady(true);
+          } else {
+            setSession(data);
+            setIsSignedIn(true);
+            setAuthReady(true);
+          }
+        });
+    }
+  };
+
   const createAccount = () => {
-    // console.log('isSignedIn');
+    console.log('Create Account');
   };
 
   const signOut = () => {
@@ -87,7 +100,19 @@ export const AuthContextProvider = ({ children }) => {
       });
   };
 
-  const context = { session, isSignedIn, signIn, createAccount, signOut, authReady };
+  // Refresh token every 90 second
+  const MINUTE_MS = 90000;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (session) {
+        signinWithJwtRefreshToken();
+      }
+    }, MINUTE_MS);
+
+    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  });
+
+  const context = { session, isSignedIn, signIn, createAccount, signOut, authReady, user, setUser, clearUser };
 
   return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
 };

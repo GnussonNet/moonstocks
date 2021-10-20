@@ -1,9 +1,6 @@
 import Router from 'next/router';
 import '@styles/main.scss';
 
-// Auth Context
-import { AuthContextProvider } from '@stores/AuthContext';
-
 // NProgress
 import NProgress from 'nprogress';
 import '@styles/modules/components/NProgress.scss';
@@ -24,9 +21,5 @@ export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(
-    // <AuthContextProvider>
-      <Component {...pageProps} />
-    // </AuthContextProvider>
-  );
+  return getLayout(<Component {...pageProps} />);
 }

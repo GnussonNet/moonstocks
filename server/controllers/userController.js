@@ -26,6 +26,28 @@ exports.get_portfolios = AsyncManager(async (req, res, next) => {
   }
 });
 
+// Title  Get Portfolio
+// Path   Get /api/v1/user/portfolios/:id
+// Auth   Private
+exports.get_portfolio = AsyncManager(async (req, res, next) => {
+  try {
+    // Retrieve user from auth middleware
+    const user = res.locals.user;
+    
+    // Get users portfolios
+    const portfolios = await user.portfolios;
+    if (!portfolios.length) throw { message: 'No portfolios exists', statusCode: 400 };
+
+    // Get the requested portfolio
+    let portfolio = portfolios.find(obj => obj._id == req.params.id);
+    if (!portfolio) throw { message: 'No portfolio exists', statusCode: 400 };
+    
+    return res.status(200).json(portfolio);
+  } catch (error) {
+    return next(new ErrorLibrary(error.message, error.statusCode));
+  }
+});
+
 // Title  Add Portfolios
 // Path   Post /api/v1/user/portfolios
 // Auth   Private

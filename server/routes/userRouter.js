@@ -1,10 +1,10 @@
 const express = require('express');
-const { get_portfolios, add_portfolio, update_portfolio, delete_portfolio, add_stock, update_stock, delete_stock, update_lot, delete_lot } = require('../controllers/userController');
+const { get_portfolios, get_portfolio, add_portfolio, update_portfolio, delete_portfolio, add_stock, update_stock, delete_stock, update_lot, delete_lot } = require('../controllers/userController');
 const router = express.Router();
 
 // Portfolio routes
 router.route('/portfolios').get(get_portfolios).post(add_portfolio);
-router.route('/portfolios/:id').patch(update_portfolio).delete(delete_portfolio);
+router.route('/portfolios/:id').get(get_portfolio).patch(update_portfolio).delete(delete_portfolio);
 
 // User routes
 router.route('/portfolios/stocks').post(add_stock);

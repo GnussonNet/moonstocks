@@ -4,19 +4,19 @@ h1 {
   font-size: 2rem;
   font-weight: 800;
   line-height: 2.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: $responsive-padding-l;
 }
 
 h2 {
   font-size: 1.4rem;
   font-weight: 600;
-  margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
+  // margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
 }
 
 h3 {
   font-size: 1.1rem;
   font-weight: 500;
-  margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
+  // margin: clamp(20px, calc(calc(5px + 1vw) * 2), 50px) 0 clamp(10px, calc(calc(5px + 1vw)), 25px) 0;
 }
 
 h4 {

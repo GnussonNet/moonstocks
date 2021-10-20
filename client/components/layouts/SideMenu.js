@@ -37,11 +37,11 @@ function SideMenu() {
           </Link>
         </li>
         <li className={styles.menu_item}>
-          <Link href={`${baseUrl}/watchlists`}>
-            <a className={router.pathname == `${baseUrl}/watchlists` ? styles.active : ''}>
+          <Link href={`${baseUrl}/portfolios`}>
+            <a className={router.pathname == `${baseUrl}/portfolios` || router.pathname == `${baseUrl}/portfolios/` ? styles.active : ''}>
               <Briefcase />
               <div className="title">
-                <h5>Watchlists</h5>
+                <h5>Portfolios</h5>
               </div>
             </a>
           </Link>

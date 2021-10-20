@@ -8,7 +8,7 @@ var Profile = () => {
     <section className={styles.page}>
       <h1>Profile</h1>
       <p>{session && session.name}</p>
-      <button onClick={signOut}>Sign Out</button>
+      <button className="btn-primary" onClick={signOut}>Sign Out</button>
     </section>
   );
 };
