@@ -1,31 +1,46 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import Router from 'next/router';
+import { Router, useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Search, Plus, Star } from 'react-feather';
+import { Home, Briefcase, BarChart2, Clock, Bell, DollarSign, Settings, User, Search, Plus } from 'react-feather';
+import Image from 'next/image';
 
 import { AuthContextProvider, useAuthContext } from '@stores/AuthContext';
 
-import Navbar from '@components/layouts/Navbar';
-import SideMenu from '@components/layouts/SideMenu';
-
 import styles from '@styles/modules/layouts/Layout.module.scss';
-import navbarStyles from '@styles/modules/layouts/Navbar.module.scss';
+import { Modal } from '@components/modal';
 
 function Layout({ children }) {
-  const { authReady, isSignedIn } = useAuthContext();
+  const { authReady, isSignedIn, session } = useAuthContext();
 
   const [loading, setLoading] = useState(true);
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({});
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   useEffect(() => {
     if (authReady && isSignedIn) {
       setLoading(false);
     } else if (authReady && !isSignedIn) {
-      Router.push('/sign_in');
+      router.push('/sign_in');
     }
   }, [isSignedIn, authReady]);
 
+  const newPortfolio = () => {
+    console.log('New Portfolio');
+    console.log(modalData.input_name);
+  };
+
+  const newStock = () => {
+    console.log('New Stock');
+  };
+
   const baseUrl = '/app';
+  const router = useRouter();
 
   if (!authReady || loading) {
     return <div />;
@@ -41,38 +56,117 @@ function Layout({ children }) {
         </Head>
 
         {/* Content */}
-        <div className={styles.container}>
-          <Navbar>
-            <li className={navbarStyles.icon}>
+        <div className={styles.app}>
+          <div className={styles.side_menu}>
+            <div className={styles.top}>
+              <Image className={styles.image} src="/icon.svg" alt="Moonstocks" width="30px" height="30px" />
+              <h4 className={styles.title}>Moonstocks</h4>
+            </div>
+            <div className={styles.main}>
               <Link href={`${baseUrl}/`}>
-                <a>
-                  <Search />
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <Home />
+                  </div>
+                  <h4 className={styles.item_title}>Overview</h4>
                 </a>
               </Link>
-            </li>
-            <li className={navbarStyles.icon}>
-              <Link href={`${baseUrl}/test1`}>
-                <a>
-                  <Plus />
+              <Link href={`${baseUrl}/portfolios`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/portfolios` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <Briefcase />
+                  </div>
+                  <h4 className={styles.item_title}>Portfolios</h4>
                 </a>
               </Link>
-            </li>
-            <li className={navbarStyles.icon}>
-              <Link href={`${baseUrl}/test2`}>
-                <a>
-                  <Star />
+              <Link href={`${baseUrl}/statistics`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/statistics` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <BarChart2 />
+                  </div>
+                  <h4 className={styles.item_title}>Statistics</h4>
                 </a>
               </Link>
-            </li>
-          </Navbar>
-          <main className={styles.main}>
-            <div className={styles.side_menu_container}>
-              <SideMenu></SideMenu>
+              <Link href={`${baseUrl}/time_to_sell`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/time_to_sell` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <Clock />
+                  </div>
+                  <h4 className={styles.item_title}>Time to Sell</h4>
+                </a>
+              </Link>
+              <Link href={`${baseUrl}/alerts`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/alerts` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <Bell />
+                  </div>
+                  <h4 className={styles.item_title}>Alerts</h4>
+                </a>
+              </Link>
+              <Link href={`${baseUrl}/sold_stocks`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/sold_stocks` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <DollarSign />
+                  </div>
+                  <h4 className={styles.item_title}>Sold Stocks</h4>
+                </a>
+              </Link>
+              <Link href={`${baseUrl}/settings`}>
+                <a className={`${styles.menu_item} ${router.pathname == `${baseUrl}/settings` ? styles.active : ''}`}>
+                  <div className={styles.item_icon}>
+                    <Settings />
+                  </div>
+                  <h4 className={styles.item_title}>Settings</h4>
+                </a>
+              </Link>
             </div>
-            <div className={styles.content_container}>
-              <div className={styles.content}>{children}</div>
+            <div className={styles.bottom}>
+              <hr />
+              <Link href={`${baseUrl}/account`}>
+                <a className={styles.menu_item}>
+                  <div className={styles.item_icon}>
+                    <User />
+                  </div>
+                  <h4 className={styles.item_title}>Account</h4>
+                </a>
+              </Link>
             </div>
-          </main>
+          </div>
+          <div className={styles.content}>
+            <div className={styles.title_bar}>
+              <div className={styles.searchbar}>
+                <Search className={styles.icon} />
+                <input className={styles.input} type="text" placeholder="Search for portfolios and stocks..." disabled />
+                <button className={styles.button} disabled>
+                  Search
+                </button>
+              </div>
+              <div className={styles.buttons}>
+                <button
+                  onClick={() => {
+                    setModalData({ type: 'newPortfolio', button_function: newPortfolio });
+                    openModal();
+                  }}
+                  className={`${styles.button} ${styles.secondary}`}
+                >
+                  <Plus className={styles.icon} />
+                  <h4 className={styles.title}>New Portfolio</h4>
+                </button>
+                <button
+                  onClick={() => {
+                    setModalData({ type: 'newStock', button_function: newStock });
+                    openModal();
+                  }}
+                  className={`${styles.button} ${styles.primary}`}
+                >
+                  <Plus className={styles.icon} />
+                  <h4 className={styles.title}>New Stock</h4>
+                </button>
+              </div>
+            </div>
+            <div className={styles.main}>{children}</div>
+          </div>
+          <Modal showModal={showModal} setShowModal={setShowModal} modalData={modalData} setModalData={setModalData} />
         </div>
       </>
     );
