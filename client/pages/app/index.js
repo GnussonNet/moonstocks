@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <div>
-      <p>Authenticated</p>
-    </div>
-  );
+  return <h1>Authenticated</h1>;
 }

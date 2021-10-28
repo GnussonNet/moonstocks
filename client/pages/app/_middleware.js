@@ -1,4 +1,4 @@
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 export function middleware(req, event) {
   const res = { isSignedIn: true, session: { firstName: 'first', lastName: 'last' } };

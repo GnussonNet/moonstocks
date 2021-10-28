@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <div>
-      <p>Sign In</p>
-    </div>
-  );
+  return <h1>Sign In</h1>;
 }
