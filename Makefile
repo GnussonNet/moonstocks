@@ -2,10 +2,13 @@ build:
 	cd client && $(MAKE) build
 
 run:
-	ENV=development docker-compose -f docker-compose.yml up -d
+	ENV=production docker-compose -f docker-compose.yml up -d
 
 stop:
 	docker-compose -f docker-compose.yml down
+
+delete: 
+	docker rmi client/
 
 clean:
 	docker system prune -a -f

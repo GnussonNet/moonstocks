@@ -1,30 +1,45 @@
-# Base on offical Node.js image
-FROM node:17-alpine
+# Base on offical nodejs image
+FROM node:17-alpine as builder
 
-# Set working directory
-WORKDIR /usr/src/app
+# Set working direcotry
+WORKDIR /app
 
 # Copy package.json and package-lock.json before other files
 # Utilise Docker cache to save re-installing dependencies if unchanged
-COPY ./package*.json ./
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install --frozen-lockfile
 
 # Copy all files
 COPY . .
 
-# NodeJs 17 error
+# Node 17 webpack error
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Build app
 RUN npm run build
 
+# Remove dev dependencies
+RUN npm prune --production
+
+# Base on offical nodejs image
+FROM node:17-alpine
+
+# Set working direcotry
+WORKDIR /app
+
+# Copy from build image
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
 # No root access
 USER node
 
 # Expose port 3000
-Expose 3000
+EXPOSE 3000
 
 # Start app
 CMD ["npm", "start"]
