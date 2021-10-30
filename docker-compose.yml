@@ -1,0 +1,13 @@
+version: '3'
+services:
+  client:
+    image: client
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - '8080:3000'
+    networks:
+      - moonstocks
+networks:
+  moonstocks:
+    driver: bridge
