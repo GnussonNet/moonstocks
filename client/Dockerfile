@@ -1,5 +1,5 @@
 # Base on offical Node.js image
-FROM node:17
+FROM node:17-alpine
 
 # Set working directory
 WORKDIR /usr/src/app
@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY ./package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Copy all files
 COPY . .
@@ -19,6 +19,9 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Build app
 RUN npm run build
+
+# No root access
+USER node
 
 # Expose port 3000
 Expose 3000
