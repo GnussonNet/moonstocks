@@ -1,13 +1,14 @@
 version: '3'
 services:
-  client:
-    image: client
+  client-production:
+    image: client-production
+    container_name: production
     build: ./client
     restart: unless-stopped
     ports:
       - '8080:3000'
     networks:
-      - moonstocks
+      - moonstocks-production
 networks:
-  moonstocks:
+  moonstocks-production:
     driver: bridge

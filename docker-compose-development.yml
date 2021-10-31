@@ -1,0 +1,18 @@
+version: '3'
+services:
+  client-development:
+    image: client-development
+    container_name: development
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - '8081:3000'
+    networks:
+      - moonstocks-development
+    volumes:
+      - ./client/:/app/
+      - /app/node_modules
+      - /app/.next
+networks:
+  moonstocks-development:
+    driver: bridge
