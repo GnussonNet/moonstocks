@@ -1,0 +1,22 @@
+version: '3'
+services:
+  client-local:
+    image: client-local
+    container_name: local
+    build: ./client
+    restart: unless-stopped
+    networks:
+      - moonstocks-local
+  nginx-local:
+    image: nginx-local
+    restart: unless-stopped
+    depends_on:
+      - client-local
+    build: ./nginx
+    ports:
+      - 8080:80
+    networks:
+      - moonstocks-local
+networks:
+  moonstocks-local:
+    driver: bridge
