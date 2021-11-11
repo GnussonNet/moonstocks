@@ -2,13 +2,14 @@ version: '3'
 services:
   client-local:
     image: client-local
-    container_name: local
+    container_name: client
     build: ./client
     restart: unless-stopped
     networks:
       - moonstocks-local
   nginx-local:
     image: nginx-local
+    container_name: nginx
     restart: unless-stopped
     depends_on:
       - client-local
@@ -17,6 +18,31 @@ services:
       - 8080:80
     networks:
       - moonstocks-local
+  server-local:
+    image: server-local
+    container_name: server
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - ENV=${ENV}
+    ports:
+      - "3001:3001"
+    networks:
+      - moonstocks-local
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5.0.3
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - moonstocks-local
+    volumes:
+      - mongo-data:/data/db
 networks:
   moonstocks-local:
     driver: bridge
+volumes:
+  mongo-data:
+    driver: local
