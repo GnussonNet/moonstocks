@@ -6,13 +6,49 @@ services:
     build: ./client
     restart: unless-stopped
     ports:
-      - '8081:3000'
+      - '3000:3000'
     networks:
       - moonstocks-development
     volumes:
       - ./client/:/app/
       - /app/node_modules
       - /app/.next
+  nginx-development:
+    image: nginx-development
+    container_name: nginx
+    restart: unless-stopped
+    depends_on:
+      - client-development
+    build: ./nginx
+    ports:
+      - 8080:80
+    networks:
+      - moonstocks-development
+  server-development:
+    image: server-development
+    container_name: server
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - ENV=${ENV}
+    ports:
+      - "3001:3001"
+    networks:
+      - moonstocks-development
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5.0.3
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - moonstocks-development
+    volumes:
+      - mongo-data-development:/data/db
 networks:
   moonstocks-development:
     driver: bridge
+volumes:
+  mongo-data-development:
+    driver: local
